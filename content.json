@@ -1,0 +1,26 @@
+{
+	"Format": 2.9.0,
+	"Changes": [
+	{
+		"Action": "Include",
+		"FromFile": "data/TriggerActions.json, data/Book.json, data/Strings.json"
+	},
+	{
+		"Action": "Load",
+		"Target": "{{ModId}}_Illustrations"
+		"FromFile": "assets/Illustrations.png"
+	},
+	{
+		"Action": "EditData",
+		"Target": "Data/PeacefulEnd.Parchment/Books",
+		"Entries": {
+			"{{ModId}}_Spellbook": {
+				"Format": "1.0.0",
+				"Id": "{{ModId}}_Spellbook",
+				"Pages": [  ]
+			}
+		}
+	}
+  ]
+}
+	

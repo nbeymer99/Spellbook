@@ -1,0 +1,11 @@
+{
+	"Changes": [
+	{
+		"Action": "EditData",
+		"Target": "Strings/StringsFromCSFiles",
+		"Entries": {
+			"{{ModId}}_LevelUpMessage": "You leveled up! Check your spellbook for new pages.", // i18n this
+		}
+	}
+  ]
+}

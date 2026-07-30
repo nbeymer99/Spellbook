@@ -1,0 +1,50 @@
+{
+	"Changes": [
+	{
+	"Action": "EditData",
+	"Target": "Data/PeacefulEnd.Parchment/Books",
+	"Entries": {
+		"{{ModId}}_Spellbook": {
+			"Format": "1.0.0",
+			"Id": "{{ModId}}_Spellbook",
+			"Pages": [  
+				{
+					"Id": "Cover",
+					"Elements": [
+						{ "Type": "Title", "Text": "Major Arcana", "Alignment": "Center" },
+						{ "Type": "Heading", "Text": "vol. 1", "Alignment": "Center" }
+					]
+				},
+				{
+					"Id": "TOC",
+					"Elements": [
+						{ "Type": "Heading", "Text": "List of Spells" },
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Paragraph", "Text": "Novice/Apprentice/Amateur/Adept/Scholar/Expert" }
+					]
+				},
+				{
+					"Id": "Apprentice.ShittyHeal",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Minor Healing", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}_Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 64 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_TriggerAction {{ModId}}_ShittyHealing",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate./n/nCost: 50 stamina\nEffect: +15 HP" },
+					]
+				}
+			]
+		}
+	}
+   }
+  ]
+}
