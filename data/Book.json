@@ -7,41 +7,197 @@
 		"{{ModId}}_Spellbook": {
 			"Format": "1.0.0",
 			"Id": "{{ModId}}_Spellbook",
+			"StartOnCover": true,
+			
+			"Overlay": [
+				{ 
+					"Type": "Image", 
+					"TexturePath": "{{ModId}}_Textures", 
+					"Position": { "X": 0, "Y": 0 } 
+				}, 
+				{ 
+					"Type": "Title", 
+					"Text": "Minor Arcana", 
+					"Alignment": "Center", 
+					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
+				},
+				{ 
+					"Type": "Heading", 
+					"Text": "vol. 1", 
+					"Alignment": "Center", 
+					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
+				},
+				{ 
+					"Type": "Paragraph", 
+					"Text": "\n\n\nwith foreword and annotations by Edwin Payne", 
+					"Alignment": "Center", 
+					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
+				}
+			],
 			"Pages": [  
+				// TOC AND FOREWORD
 				{
-					"Id": "Cover",
+					"Id": "Foreword",
 					"Elements": [
-						{ "Type": "Title", "Text": "Major Arcana", "Alignment": "Center" },
-						{ "Type": "Heading", "Text": "vol. 1", "Alignment": "Center" }
+						{ "Type": "Heading", "Text": "Foreword", "Alignment": "Center" },
+						{ 
+							"Type": "Paragraph", 
+							"Text": "    Minor Arcana, vol. 1, serves as an excellent introduction into the world of spellcasting. Those wishing to learn the art of magic are advised, first and foremost, that magic always comes with a cost, whether it be material or at the magician's own expense. Treat each spell in here with caution; I have done my best to annotate estimates of each spell's effects where possible.\n    As a novice, some spells will not be possible to perform immediately. With practice comes expertise, and with expertise comes a wider and stronger range of abilities.", 
+							"Scale": "{{TextScale}}"
+						}
 					]
 				},
 				{
-					"Id": "TOC",
+					"Id": "Foreword2",
 					"Elements": [
-						{ "Type": "Heading", "Text": "List of Spells" },
+						{ 
+							"Type": "Paragraph", 
+							"Text": "    For beginners who are not supplied with an inordinate amount of ghostly energy like myself, I recommend first attempting to perform the Invocare Pyrales spell. It only consumes a small portion of energy, and requires one torch to cast.\n    I wish you best of luck in your education.\n\n    Edwin Payne", 
+							"Scale": "{{TextScale}}"
+						},
+						{
+							"Type": "Image",
+							"TexturePath": "{{ModId}}_Textures",
+							"Position": { "X": 0, "Y": 0 }
+						}
+					]
+				},
+				{
+					"Id": "TableOfContents1",
+					"Elements": [
+						{ "Type": "Title", "Text": "List of Spells" },
 						{ "Type": "Divider", "Sizing": "Fill" },
-						{ "Type": "Paragraph", "Text": "Novice/Apprentice/Amateur/Adept/Scholar/Expert" }
+						{ "Type": "Heading", "Text": "Novice" },
+						{ 
+							"Type": "Paragraph", 
+							"Text": "Pyrales Invocare", 
+							"Action": "PeacefulEnd.Parchment_JumpToPage 4" 
+						},
+						{ 
+							"Type": "Paragraph", 
+							"Text": "Ignis Colorum", 
+							"Action": "PeacefulEnd.Parchment_JumpToPage 5" 
+						},
+						{ 
+							"Type": "Paragraph", 
+							"Text": "Medicandus Minimus", 
+							"Action": "PeacefulEnd.Parchment_JumpToPage 6" 
+						},
+						{ 
+							"Type": "Paragraph", 
+							"Text": "Resurgere Minime", 
+							"Action": "PeacefulEnd.Parchment_JumpToPage 7" 
+						},
+						{ 
+							"Type": "Paragraph", 
+							"Text": "Hortum Colere", 
+							"Action": "PeacefulEnd.Parchment_JumpToPage 8" 
+						},
 					]
 				},
 				{
-					"Id": "Apprentice.ShittyHeal",
+					"Id": "TableOfContents2",
+					"Elements": [
+						{ "Type": "Title", "Text": "List of Spells" },
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Heading", "Text": "Apprentice", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received" },
+						{ "Type": "Paragraph", "Text": "Dies Pluviae", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received", },
+						{ "Type": "Paragraph", "Text": "Agricola Festinus", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received" },
+						{ "Type": "Paragraph", "Text": "Iter Vicinus", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received" },
+					]
+				},
+				
+				// NOVICE SPELLS
+				{
+					"Id": "Novice.Fireflies",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Invocare Pyrales", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Summon Fireflies", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}_Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_QuestionDialogue {{ModId}}_SummonFireflies",
+								"RemoveItem 93 1",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Conjure luminous insects out of the aether to light your path.\n\nCost: 10 stamina, 1 torch." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPage 2", 
+						}
+					]
+				},
+				{
+					"Id": "Novice.Fireworks",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Ignis Colorum", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Summon Fireflies", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}_Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_QuestionDialogue {{ModId}}_FireTheWorks",
+								"RemoveItem 93 1",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Conjure luminous insects out of the aether to light your path.\n\nCost: 10 stamina, 1 torch." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPage 2", 
+						}
+					]
+				},
+				{
+					"Id": "Novice.Heal",
+					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
 						{ "Type": "Paragraph", "Text": "Minor Healing", "Alignment": "Center" },
 						{ "Type": "Image", 
 							"TexturePath": "{{ModId}}_Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 64 },
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_TriggerAction {{ModId}}_ShittyHealing",
+								"Spiderbuttons.BETAS_AddHealth 15",
+								"Spiderbuttons.BETAS_AddStamina -50",
+								"Spiderbuttons.BETAS_PlaySound yoba",
 								"IncrementStat {{ModId}}_Spellcasting 1",
 							]
 						},
-						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate./n/nCost: 50 stamina\nEffect: +15 HP" },
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 stamina\nEffect: +15 HP" },
 					]
-				}
+				},
 			]
 		}
 	}

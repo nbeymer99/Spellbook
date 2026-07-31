@@ -1,63 +1,26 @@
 {
 	"Changes": [
 	{
-		"Actions": "EditData",
+		"Action": "EditData",
 		"Target": "Data/TriggerActions",
 		"Entries": {
 			// STAT TRACKING
-			"{{ModId}}_AddExperience": {
-				"Id": "{{ModId}}_AddExperience",
-				"Trigger": "Manual",
-				"Condition": true,
-				"Actions": [
-					"IncrementStat {{ModId}}_Spellcasting 1"
-				]
-			},
 			"{{ModId}}_CheckExperience": {
 				"Id": "{{ModId}}_CheckExperience",
-				"Trigger": "Manual",
+				"Trigger": "DayEnding",
 				"Condition": "PLAYER_STAT Current {{ModId}}_Spellcasting 20",
+				"MarkActionApplied": false,
 				"Actions": [
-					"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_LevelUpMessage",
+					"AddMail Current {{ModId}}_isApprentice received",
 					// give player +1 level - check parchment for adding pages
 				]
 			},
-			
-			// LEVEL ONE SPELLS
-			/* "{{ModId}}_FireTheWorks": {
-				"Id": "{{ModId}}_FireTheWorks",
-				"Trigger": "Manual",
-				"Condition": true,
+			"{{ModId}}_LevelUpNotification": {
+				"Id": "{{ModId}}_LevelUpNotification",
+				"Trigger": "DayStarted",
+				"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice",
 				"Actions": [
-					"mushymato.MMAP_LaunchFireworks PLAYER_X PLAYER_Y "
-				]
-			},
-			"{{ModId}}_SummonFireflies": {
-				"Id": "{{ModId}}_SummonFireflies",
-				"Trigger": "Manual",
-				"Condition": true,
-				"Actions": [
-					"mushymato.MMAP_Critter PLAYER_X PLAYER_Y Firefly 5"
-				]
-			}, */
-			"{{ModId}}_ShittyHeal": {
-				"Id": "{{ModId}}_ShittyHeal",
-				"Trigger": "Manual",
-				"Condition": true,
-				"Actions": [
-					"Spiderbuttons.BETAS_AddHealth 15",
-					"Spiderbuttons.BETAS_AddStamina -50",
-					"Spiderbuttons.BETAS_PlaySound yoba"
-				]
-			},
-			"{{ModId}}_ShittyRegen": {
-				"Id": "{{ModId}}_ShittyRegen",
-				"Trigger": "Manual",
-				"Condition": true,
-				"Actions": [
-					"Spiderbuttons.BETAS_AddHealth -50",
-					"Spiderbuttons.BETAS_AddStamina 15",
-					"Spiderbuttons.BETAS_PlaySound yoba"
+					"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_LevelUpMessage",
 				]
 			},
 		}

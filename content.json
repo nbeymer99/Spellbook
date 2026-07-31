@@ -1,25 +1,98 @@
 {
-	"Format": 2.9.0,
+	"Format": "2.9.0",
+	"ConfigSchema": { // i18n this
+		"ExperienceNeeded": {
+			"Default": 30,
+			"Description": "Amount of experience needed to level up spellcasting ability. Must be a positive number.",
+		},
+		"TextScale": {
+			"Default": 0.9,
+			"Description": "Some spellbook text is scalable. Adjust this value up or down to make text smaller or bigger. Warning: text bigger than 0.9 may go off pages."
+		}
+	},
 	"Changes": [
 	{
 		"Action": "Include",
-		"FromFile": "data/TriggerActions.json, data/Book.json, data/Strings.json"
+		"FromFile": "data/TriggerActions.json, data/Book.json, data/Strings.json, data/Powers.json, data/MMAPQuestionDialogue.json"
 	},
 	{
 		"Action": "Load",
-		"Target": "{{ModId}}_Illustrations"
+		"Target": "{{ModId}}_Illustrations",
 		"FromFile": "assets/Illustrations.png"
 	},
 	{
 		"Action": "EditData",
-		"Target": "Data/PeacefulEnd.Parchment/Books",
+		"Target": "Data/Objects",
 		"Entries": {
 			"{{ModId}}_Spellbook": {
-				"Format": "1.0.0",
-				"Id": "{{ModId}}_Spellbook",
-				"Pages": [  ]
+				"Name": "{{ModId}}_Spellbook",
+				"DisplayName": "Minor Arcana, vol. 1",
+				"Description": "A book of spells, complete with foreword and annotations.",
+				"Type": "Basic",
+				"Category": -102,
+				"Price": 50000,
+				"Texture": "{{ModId}}_Items",
+				"SpriteIndex": 0,
+				"CanBeGivenAsGift": false,
+				"CanBeTrashed": true,
+				"ExcludeFromShippingCollection": true,
+				"ExcludeFromRandomSale": true,
+				"ContextTags": null,
+				"CustomFields": {
+					"PeacefulEnd.Parchment/CustomFields/BookId": "{{ModId}}_Spellbook"
+				}
 			}
 		}
+	},
+    ],
+	
+	"DynamicTokens": [
+	{
+		"Name": "PlayerSpellcastingLevel",
+		"Value": 0 // novice
+	},
+	{
+		"Name": "PlayerSpellcastingLevel",
+		"Value": 1, // apprentice
+		"When": {
+			"HasFlag: currentPlayer": "{{ModId}}_isApprentice"
+		}
+	},
+	{
+		"Name": "PlayerSpellcastingLevel",
+		"Value": 2, // amateur
+		"When": {
+			"HasFlag: currentPlayer": "{{ModId}}_isAmateur"
+		}
+	},
+	{
+		"Name": "PlayerSpellcastingLevel",
+		"Value": 3, // adept
+		"When": {
+			"HasFlag: currentPlayer": "{{ModId}}_isAdept"
+		}
+	},
+	{
+		"Name": "PlayerSpellcastingLevel",
+		"Value": 4, // scholar
+		"When": {
+			"HasFlag: currentPlayer": "{{ModId}}_isScholar"
+		}
+	},
+	{
+		"Name": "PlayerSpellcastingLevel",
+		"Value": 5, // expert
+		"When": {
+			"HasFlag: currentPlayer": "{{ModId}}_isExpert"
+		}
+	},
+	{
+		"Name": "PowerIconX",
+		"Value": "{{Round: {{Query: 16 * {{PlayerSpellcastingLevel}} }} }}"
+	},
+	{
+		"Name": "LevelThreshold",
+		"Value": "{{Round: {{Query: (1 + {{PlayerSpellcastingLevel}}) * {{ExperienceNeeded}} }} }}"
 	}
   ]
 }

@@ -1,0 +1,138 @@
+{
+	"Changes": [
+	{
+		"Action": "EditData",
+		"Target": "mushymato.MMAP/QuestionDialogue",
+		"Entries": {
+			"{{ModId}}_FireTheWorks": {
+				"ResponsePick": "AlwaysShowResponses",
+				"ResponseEntries": {
+					//{},
+					"ColorRed": {
+						"Label": "Summon red fireworks", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_LaunchFireworks 0",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+					"ColorPurple": {
+						"Label": "Summon purple fireworks", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_LaunchFireworks 1",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+					"ColorGreen": {
+						"Label": "Summon green fireworks", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_LaunchFireworks 2",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+				}
+			},
+			"{{ModId}}_SummonFireflies": {
+				"ResponsePick": "AlwaysShowResponses",
+				"Question": "How many fireflies do you want to summon?",
+				"ResponseEntries": {
+					//{},
+					"1": {
+						"Label": "1",
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_Critter Firefly T 1",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+					"2": {
+						"Label": "2",
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_Critter Firefly T 2",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+					"3": {
+						"Label": "3",
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_Critter Firefly T 3",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+					"4": {
+						"Label": "4",
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_Critter Firefly T 4",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+					"5": {
+						"Label": "5",
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_Critter Firefly T 5",
+							"IncrementStat {{ModId}}_Spellcasting 1"
+						],
+					},
+				}
+			},
+			"{{ModId}}_Hop": {
+				"ResponsePick": "AlwaysShowResponses",
+				"Question": "Which direction?",
+				"ResponseEntries": {
+					//{},
+					"North": {
+						"Label": "North", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_WrpHere 0 -3 0 false true shadowDie",
+							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+						],
+					},
+					"East": {
+						"Label": "East", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_WrpHere 3 0 1 false true shadowDie",
+							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+						],
+					},
+					"South": {
+						"Label": "South", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_WrpHere 0 3 2 false true shadowDie",
+							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+						],
+					},
+					"West": {
+						"Label": "West", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"mushymato.MMAP_WrpHere -3 0 1 false true shadowDie",
+							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+						],
+					},
+				}
+			},
+		}
+	}
+  ]
+}
