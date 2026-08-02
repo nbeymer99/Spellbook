@@ -4,7 +4,8 @@
 		"Action": "EditData",
 		"Target": "Strings/StringsFromCSFiles",
 		"Entries": {
-			"{{ModId}}_LevelUpMessage": "You leveled up! Check your spellbook for new pages.", // i18n this
+			"{{ModId}}_LevelUpMessage": "You leveled up! Check your spellbook for new pages.",
+			"{{ModId}}_RequirementsNotMet": "You don't have the required components to cast this spell.",
 		}
 	}
   ]

@@ -2,7 +2,7 @@
     "Name": "Edwin's Spellbook",
     "Author": "handwrittenhello",
     "Version": "1.0.0",
-    "Description": "Add-on for Dead Boy Detectives. Cast spells and level up your magic skill with Edwin's spellbook.",
+    "Description": "Add-on for Dead Boy Detectives. Cast spells and level up your magic ability with Edwin's spellbook.",
     "UniqueID": "handwrittenhello.esb",
     "UpdateKeys": [ "Nexus:xxxxx" ],
     "ContentPackFor": {
@@ -27,7 +27,7 @@
 		},
 		{
 		  "UniqueID": "handwrittenhello.dbda",
-		  "IsRequired": true
+		  "IsRequired": false
 		},
 	]
 }

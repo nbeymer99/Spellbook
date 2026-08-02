@@ -7,13 +7,14 @@
 			"{{ModId}}_FireTheWorks": {
 				"ResponsePick": "AlwaysShowResponses",
 				"ResponseEntries": {
-					//{},
+					"Cancel": {},
 					"ColorRed": {
 						"Label": "Summon red fireworks", // i18n
 						"TileActionStopAtFirstSuccess": false,
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_LaunchFireworks 0",
+							"Spiderbuttons.BETAS_AddStamina -15",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -23,6 +24,7 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_LaunchFireworks 1",
+							"Spiderbuttons.BETAS_AddStamina -10",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -32,6 +34,7 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_LaunchFireworks 2",
+							"Spiderbuttons.BETAS_AddStamina -10",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -41,13 +44,14 @@
 				"ResponsePick": "AlwaysShowResponses",
 				"Question": "How many fireflies do you want to summon?",
 				"ResponseEntries": {
-					//{},
+					"Cancel": {},
 					"1": {
 						"Label": "1",
 						"TileActionStopAtFirstSuccess": false,
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_Critter Firefly T 1",
+							"Spiderbuttons.BETAS_AddStamina -10",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -57,6 +61,7 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_Critter Firefly T 2",
+							"Spiderbuttons.BETAS_AddStamina -11",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -66,6 +71,7 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_Critter Firefly T 3",
+							"Spiderbuttons.BETAS_AddStamina -12",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -75,6 +81,7 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_Critter Firefly T 4",
+							"Spiderbuttons.BETAS_AddStamina -14",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -84,6 +91,7 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_Critter Firefly T 5",
+							"Spiderbuttons.BETAS_AddStamina -15",
 							"IncrementStat {{ModId}}_Spellcasting 1"
 						],
 					},
@@ -93,7 +101,7 @@
 				"ResponsePick": "AlwaysShowResponses",
 				"Question": "Which direction?",
 				"ResponseEntries": {
-					//{},
+					"Cancel": {},
 					"North": {
 						"Label": "North", // i18n
 						"TileActionStopAtFirstSuccess": false,

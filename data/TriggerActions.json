@@ -23,6 +23,62 @@
 					"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_LevelUpMessage",
 				]
 			},
+			
+			// MAIL
+			"{{ModId}}_WizardMail": {
+				"Id": "{{ModId}}_WizardMail",
+				"Condition": "!{{HasMod |contains=handwrittenhello.dbda}}, PLAYER_HEARTS Current Wizard 2",
+				"Trigger": "DayStarted",
+				"Actions": [
+					"AddMail Current {{ModId}}_GiveSpellbook now"
+				]
+			}
+		}
+	},
+	
+	{
+		"Action": "EditData",
+		"Target": "spacechase0.SpaceCore/SpawningGroups",
+		"Entries": 
+		"{{ModId}}_TreeSpawnGroup": {
+			"SpawnablesToSpawn": [
+				{
+					"SpawnableIds": [
+						{
+							"Weight": 1.0,
+							"Value": "{{ModId}}_Maple" 
+						},
+						{
+							"Weight": 1.0,
+							"Value": "{{ModId}}_Pine" 
+						},
+						{
+							"Weight": 1.0,
+							"Value": "{{ModId}}_Oak" 
+						},
+					],
+					"Minimum": 30
+				}
+			]
+		}
+	},
+	{
+		"Action": "EditData",
+		"Target": "spacechase0.SpaceCore/SpawnableDefinitions",
+		"Entries": {
+			// trees
+			"{{ModId}}_Oak": {
+				"Type": "WildTree",
+				"WildTreeType": 1,
+			},
+			"{{ModId}}_Maple": {
+				"Type": "WildTree",
+				"WildTreeType": 2,
+			},
+			"{{ModId}}_Pine": {
+				"Type": "WildTree",
+				"WildTreeType": 3,
+			},
 		}
 	}
   ]

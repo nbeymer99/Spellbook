@@ -1,0 +1,32 @@
+{
+	"Changes": [
+	{
+		"Action": "EditMap",
+		"Target": "Maps/handwrittenhello.dbda_Backpack",
+		"MapTiles": [
+			{
+				"Layer": "Buildings",
+				"Position": { "X": 3, "Y": 10 },
+				"SetProperties": {
+					"Action": "Spiderbuttons.BETAS_TriggerAction {{ModId}}_BookOnShelf"
+				}
+			}
+		]
+	},
+	{
+		"Action": "EditData",
+		"Target": "Data/TriggerActions",
+		"Entries": {
+			"{{ModId}}_BookOnShelf": {
+				"Id": "{{ModId}}_BookOnShelf",
+				"Trigger": "Manual",
+				"Condition": true,
+				"Actions": [
+					"Spiderbuttons.BETAS_PlaySound secret1",
+					"Spiderbuttons.BETAS_HoldUpItem {{ModId}}_Spellbook"
+				]
+			}
+		}
+	},
+  ]
+}

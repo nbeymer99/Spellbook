@@ -52,14 +52,22 @@
 					"Elements": [
 						{ 
 							"Type": "Paragraph", 
-							"Text": "    For beginners who are not supplied with an inordinate amount of ghostly energy like myself, I recommend first attempting to perform the Invocare Pyrales spell. It only consumes a small portion of energy, and requires one torch to cast.\n    I wish you best of luck in your education.\n\n    Edwin Payne", 
+							"Text": "    For beginners who are not supplied with an inordinate amount of ghostly energy like myself, I recommend first attempting to perform the Pyrales Invocare spell. It only consumes a small portion of energy, and requires one torch to cast.\n    I wish you best of luck in your endeavours.\n\n    Edwin Payne", 
 							"Scale": "{{TextScale}}"
 						},
+						
+						// EMP stats
+						{ "Type": "Divider", "Sizing": "Fill" },
 						{
+							"Type": "Paragraph",
+							"Text": "\n\n\nCurrent spellcasting ability: [FarmerStat {{ModId}}_Spellcasting]\nMore spells will be unlocked at: {{LevelThreshold}}.",
+							"Scale": "{{TextScale}}"
+						},
+						/* {
 							"Type": "Image",
 							"TexturePath": "{{ModId}}_Textures",
 							"Position": { "X": 0, "Y": 0 }
-						}
+						} */
 					]
 				},
 				{
@@ -70,28 +78,56 @@
 						{ "Type": "Heading", "Text": "Novice" },
 						{ 
 							"Type": "Paragraph", 
+							"Description": "Jump to spell",
 							"Text": "Pyrales Invocare", 
-							"Action": "PeacefulEnd.Parchment_JumpToPage 4" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Fireflies",
 						},
 						{ 
-							"Type": "Paragraph", 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
 							"Text": "Ignis Colorum", 
-							"Action": "PeacefulEnd.Parchment_JumpToPage 5" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Fireworks" 
 						},
 						{ 
-							"Type": "Paragraph", 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
 							"Text": "Medicandus Minimus", 
-							"Action": "PeacefulEnd.Parchment_JumpToPage 6" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Heal" 
 						},
 						{ 
-							"Type": "Paragraph", 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
 							"Text": "Resurgere Minime", 
-							"Action": "PeacefulEnd.Parchment_JumpToPage 7" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Regen"
 						},
 						{ 
-							"Type": "Paragraph", 
-							"Text": "Hortum Colere", 
-							"Action": "PeacefulEnd.Parchment_JumpToPage 8" 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Hortum Colere\n", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Weeds" 
+						},
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Heading", "Text": "Apprentice" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Dies Pluviae", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Rain" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Festina Lente", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Speed" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Medicandus Minor", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Heal" 
 						},
 					]
 				},
@@ -100,13 +136,184 @@
 					"Elements": [
 						{ "Type": "Title", "Text": "List of Spells" },
 						{ "Type": "Divider", "Sizing": "Fill" },
-						{ "Type": "Heading", "Text": "Apprentice", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received" },
-						{ "Type": "Paragraph", "Text": "Dies Pluviae", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received", },
-						{ "Type": "Paragraph", "Text": "Agricola Festinus", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received" },
-						{ "Type": "Paragraph", "Text": "Iter Vicinus", "Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Resurgere Minus",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Regen" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Iter Ad Vicinitatem\n", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Hop" 
+						},
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Heading", "Text": "Amateur" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Dies Tempestatis",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Storm" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Perfundere Viridibus",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.GreenRain" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Flammae Iacere",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Fireball" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Medicandus Medius", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Heal"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Resurgere Medio",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Regen" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Litore Ponere\n",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.BeachWarp" 
+						},
 					]
 				},
-				
+				{
+					"Id": "TableOfContents3",
+					"Elements": [
+						{ "Type": "Title", "Text": "List of Spells" },
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Heading", "Text": "Adept" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Sacculus Continens",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.BagOfHolding" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Medicandus Magnus", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.Heal"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Resurgere Magne",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.Regen" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Ad Urbem\n",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.WarpTown" 
+						},
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Heading", "Text": "Scholar" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Fulmina Iacere",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Lightning" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Medicandus Maior", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Heal"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Resurgere Maius",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Regen" 
+						},
+						
+					]
+				},
+				{
+					"Id": "TableOfContents4",
+					"Elements": [
+						{ "Type": "Title", "Text": "List of Spells" },
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Ad Cavernas",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.WarpMines" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Agricola Festinus\n", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Speed" 
+						},
+						{ "Type": "Divider", "Sizing": "Fill" },
+						{ "Type": "Heading", "Text": "Expert" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Ad Harenas",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpDesert" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Domi Redire",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpHome" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Medicandus Maximus", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Heal"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Resurgere Maxime",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Regen"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Amor Aetatum",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Love" 
+						},
+					]
+				},
 				// NOVICE SPELLS
 				{
 					"Id": "Novice.Fireflies",
@@ -114,8 +321,10 @@
 					"Elements": [
 						{ "Type": "Heading", "Text": "Invocare Pyrales", "Alignment": "Center" },
 						{ "Type": "Paragraph", "Text": "Summon Fireflies", "Alignment": "Center" },
-						{ "Type": "Image", 
-							"TexturePath": "{{ModId}}_Illustrations" ,
+						{ 
+							"Type": "Image", 
+							"Condition": "PLAYER_HAS_ITEM Current (O)93 1",
+							"TexturePath": "{{ModId}}/Illustrations" ,
 							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
@@ -126,38 +335,16 @@
 								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
-						{ "Type": "Paragraph", "Text": "Conjure luminous insects out of the aether to light your path.\n\nCost: 10 stamina, 1 torch." },
 						{ 
-							"Type": "Button", 
-							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
-							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-							"Text": "Return to spell list",
-							"FontType": "Small",
-							"Sizing": "ShrinkToFit",
-							"Alignment": "Center",
-							"Scale": 2,
-							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_JumpToPage 2", 
-						}
-					]
-				},
-				{
-					"Id": "Novice.Fireworks",
-					"ChapterId": "Novice",
-					"Elements": [
-						{ "Type": "Heading", "Text": "Ignis Colorum", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Summon Fireflies", "Alignment": "Center" },
-						{ "Type": "Image", 
-							"TexturePath": "{{ModId}}_Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"Type": "Image", 
+							"Condition": "!PLAYER_HAS_ITEM Current (O)93 1",
+							"TexturePath": "{{ModId}}/Illustrations_BW" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
 							"Actions": [
-								"mushymato.MMAP_QuestionDialogue {{ModId}}_FireTheWorks",
-								"RemoveItem 93 1",
-								"PeacefulEnd.Parchment_CloseBook"
+								"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_RequirementsNotMet"
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Conjure luminous insects out of the aether to light your path.\n\nCost: 10 stamina, 1 torch." },
@@ -172,7 +359,40 @@
 							"Alignment": "Center",
 							"Scale": 2,
 							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_JumpToPage 2", 
+							"Action": "PeacefulEnd.Parchment_GoBack", 
+						}
+					]
+				},
+				{
+					"Id": "Novice.Fireworks",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Ignis Colorum", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Launch Fireworks", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_QuestionDialogue {{ModId}}_FireTheWorks",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Launch a colorful explosion into the air.\n\nCost: 15 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_GoBack", 
 						}
 					]
 				},
@@ -180,10 +400,10 @@
 					"Id": "Novice.Heal",
 					"ChapterId": "Novice",
 					"Elements": [
-						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
+						{ "Type": "Heading", "Text": "Medicandus Minimus", "Alignment": "Center" },
 						{ "Type": "Paragraph", "Text": "Minor Healing", "Alignment": "Center" },
 						{ "Type": "Image", 
-							"TexturePath": "{{ModId}}_Illustrations" ,
+							"TexturePath": "{{ModId}}/Illustrations" ,
 							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
@@ -196,6 +416,195 @@
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 stamina\nEffect: +15 HP" },
+					]
+				},
+				{
+					"Id": "Novice.Regen",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Minime", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Minor Energy", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -50",
+								"Spiderbuttons.BETAS_AddStamina 15",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 HP\nEffect: +15 stamina" },
+					]
+				},
+				{
+					"Id": "Novice.Weeds",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Hortum Colere", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Summon Weeds", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							"Condition": "PLAYER_HAS_ITEM Current 770 3",
+							
+							"Actions": [
+								"spacechase0.SpaceCore_TriggerSpawnGroup {{ModId}}_TreeSpawnGroup 0,0,50,50",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations_BW" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							"Condition": "!PLAYER_HAS_ITEM Current 770 3",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_RequirementsNotMet"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Grow an unreasonable amount of trees on your farm.\n\nCost: 3 mixed seeds, 20 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_GoBack", 
+						}
+					]
+				},
+				
+				// APPRENTICE SPELLS
+				{
+					"Id": "Apprentice.Rain",
+					"ChapterId": "Apprentice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Dies Pluviae", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Rain Spell", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WeatherForTomorrow Default Rain",
+								"Spiderbuttons.BETAS_AddStamina -30",
+								"IncrementStat {{ModId}}_Spellcasting 2",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Gather clouds from across the skies and prepare for a downpour tomorrow.\n\nCost: 30 stamina." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_GoBack", 
+						}
+					]
+				},
+				{
+					"Id": "Apprentice.Speed",
+					"ChapterId": "Apprentice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Festina Lente", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Minor Haste", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"AddBuff 22",
+								"Spiderbuttons.BETAS_AddStamina -20",
+								"IncrementStat {{ModId}}_Spellcasting 2",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Harness the speed of the wind to increase your speed.\n\nCost: 20 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_GoBack", 
+						}
+					]
+				},
+				{
+					"Id": "Apprentice.Heal",
+					"ChapterId": "Apprentice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Minor Healing", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth 30",
+								"Spiderbuttons.BETAS_AddStamina -50",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +15 HP" },
+					]
+				},
+				{
+					"Id": "Apprentice.Regen",
+					"ChapterId": "Apprentice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Minus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Minor Energy", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -50",
+								"Spiderbuttons.BETAS_AddStamina 30",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +15 stamina" },
 					]
 				},
 			]
