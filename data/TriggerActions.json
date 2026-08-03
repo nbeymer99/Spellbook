@@ -19,12 +19,13 @@
 				"Id": "{{ModId}}_LevelUpNotification",
 				"Trigger": "DayStarted",
 				"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice",
+				"MarkActionApplied": false,
 				"Actions": [
 					"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_LevelUpMessage",
 				]
 			},
 			
-			// MAIL
+			// MAIL AND FLAGS
 			"{{ModId}}_WizardMail": {
 				"Id": "{{ModId}}_WizardMail",
 				"Condition": "!{{HasMod |contains=handwrittenhello.dbda}}, PLAYER_HEARTS Current Wizard 2",
@@ -32,34 +33,48 @@
 				"Actions": [
 					"AddMail Current {{ModId}}_GiveSpellbook now"
 				]
-			}
+			},
+			"{{ModId}}_UnsetLoveSpellFlag": {
+				"Id": "{{ModId}}_UnsetLoveSpellFlag",
+				"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_UsedLoveSpellToday",
+				"Trigger": "DayEnding",
+				"MarkActionApplied": false,
+				"Actions": [
+					"RemoveMail Current {{ModId}}_UsedLoveSpellToday all",
+					"Spiderbuttons.BETAS_SetFriendshipPoints {{TodaysNPC}} [PlayerModData {{ModId}}_CurrentFriendshipStoredValue]", // revert friendship to normal
+					"AddConversationTopic {{ModId}}_LoveSpellWoreOff_{{TodaysNPC}}", // give specific NPC weirded out CT
+					"RemoveConversationTopic {{ModId}}_UsedLoveSpell_{{TodaysNPC}}" // remove besotted love spell CT
+				]
+			},
 		}
 	},
 	
 	{
 		"Action": "EditData",
 		"Target": "spacechase0.SpaceCore/SpawningGroups",
-		"Entries": 
-		"{{ModId}}_TreeSpawnGroup": {
-			"SpawnablesToSpawn": [
-				{
-					"SpawnableIds": [
-						{
-							"Weight": 1.0,
-							"Value": "{{ModId}}_Maple" 
-						},
-						{
-							"Weight": 1.0,
-							"Value": "{{ModId}}_Pine" 
-						},
-						{
-							"Weight": 1.0,
-							"Value": "{{ModId}}_Oak" 
-						},
-					],
-					"Minimum": 30
-				}
-			]
+		"Entries": {
+			"{{ModId}}_TreeSpawnGroup": {
+				"SpawnablesToSpawn": [
+					{
+						"SpawnableIds": [
+							{
+								"Weight": 1.0,
+								"Value": "{{ModId}}_Maple" 
+							},
+							{
+								"Weight": 1.0,
+								"Value": "{{ModId}}_Pine" 
+							},
+							{
+								"Weight": 1.0,
+								"Value": "{{ModId}}_Oak" 
+							},
+						],
+						"Minimum": 10,
+						"Maximum": 1000
+					}
+				]
+			}
 		}
 	},
 	{

@@ -108,7 +108,8 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_WrpHere 0 -3 0 false true shadowDie",
-							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+							"Spiderbuttons.BETAS_AddStamina -5",
+							"IncrementStat {{ModId}}_Spellcasting 2"
 						],
 					},
 					"East": {
@@ -117,7 +118,8 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_WrpHere 3 0 1 false true shadowDie",
-							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+							"Spiderbuttons.BETAS_AddStamina -5",
+							"IncrementStat {{ModId}}_Spellcasting 2"
 						],
 					},
 					"South": {
@@ -126,7 +128,8 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_WrpHere 0 3 2 false true shadowDie",
-							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+							"Spiderbuttons.BETAS_AddStamina -5",
+							"IncrementStat {{ModId}}_Spellcasting 2"
 						],
 					},
 					"West": {
@@ -135,7 +138,95 @@
 						"Condition": true,
 						"TileActions": [
 							"mushymato.MMAP_WrpHere -3 0 1 false true shadowDie",
-							"IncrementStat {{ModId}}_Spellcasting 1" // change level and xp
+							"Spiderbuttons.BETAS_AddStamina -5",
+							"IncrementStat {{ModId}}_Spellcasting 2"
+						],
+					},
+				}
+			},
+			"{{ModId}}_DirectionalFireball": {
+				"ResponsePick": "AlwaysShowResponses",
+				"Question": "Which direction?",
+				"ResponseEntries": {
+					"Cancel": {},
+					"North": {
+						"Label": "North", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETASCharacterCoordinate Farmer X] [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer Y] - 4] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"Northwest": {
+						"Label": "Northwest", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer X] + 4] [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer Y] - 4] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"West": {
+						"Label": "West", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer X] + 4] [Spiderbuttons.BETASCharacterCoordinate Farmer Y] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"Southwest": {
+						"Label": "Southwest", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer X] + 4] [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer Y] + 4] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"South": {
+						"Label": "South", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETASCharacterCoordinate Farmer X] [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer Y] + 4] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"Southeast": {
+						"Label": "Southeast", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer X] - 4] [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer Y] + 4] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"East": {
+						"Label": "East", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer X] - 4] [Spiderbuttons.BETASCharacterCoordinate Farmer Y] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
+						],
+					},
+					"Northeast": {
+						"Label": "Northeast", // i18n
+						"TileActionStopAtFirstSuccess": false,
+						"Condition": true,
+						"TileActions": [
+							"Spiderbuttons.BETAS_Explode [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer X] - 4] [Spiderbuttons.BETAS_NumberOffset [Spiderbuttons.BETASCharacterCoordinate Farmer Y] - 4] 3 true 40 true",
+							"Spiderbuttons.BETAS_AddStamina -40",
+							"IncrementStat {{ModId}}_Spellcasting 3"
 						],
 					},
 				}

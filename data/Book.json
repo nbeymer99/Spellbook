@@ -52,7 +52,7 @@
 					"Elements": [
 						{ 
 							"Type": "Paragraph", 
-							"Text": "    For beginners who are not supplied with an inordinate amount of ghostly energy like myself, I recommend first attempting to perform the Pyrales Invocare spell. It only consumes a small portion of energy, and requires one torch to cast.\n    I wish you best of luck in your endeavours.\n\n    Edwin Payne", 
+							"Text": "    For beginners who are not supplied with an inordinate amount of ghostly energy like myself, I recommend first attempting to perform the Pyrales Invocare spell. It only consumes a small portion of energy, and requires one torch to cast.\n    I wish you best of luck in your endeavours.\n\n    Edwin Payne\n\n\n", 
 							"Scale": "{{TextScale}}"
 						},
 						
@@ -60,7 +60,7 @@
 						{ "Type": "Divider", "Sizing": "Fill" },
 						{
 							"Type": "Paragraph",
-							"Text": "\n\n\nCurrent spellcasting ability: [FarmerStat {{ModId}}_Spellcasting]\nMore spells will be unlocked at: {{LevelThreshold}}.",
+							"Text": "Current spellcasting ability: [FarmerStat {{ModId}}_Spellcasting]\nMore spells will be unlocked at: {{LevelThreshold}}.",
 							"Scale": "{{TextScale}}"
 						},
 						/* {
@@ -85,12 +85,6 @@
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
-							"Text": "Ignis Colorum", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Fireworks" 
-						},
-						{ 
-							"Type": "Paragraph",
-							"Description": "Jump to spell",
 							"Text": "Medicandus Minimus", 
 							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Heal" 
 						},
@@ -99,6 +93,12 @@
 							"Description": "Jump to spell",
 							"Text": "Resurgere Minime", 
 							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Regen"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Ignis Colorum", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Fireworks" 
 						},
 						{ 
 							"Type": "Paragraph",
@@ -122,13 +122,6 @@
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
 							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Speed" 
 						},
-						{ 
-							"Type": "Paragraph",
-							"Description": "Jump to spell",
-							"Text": "Medicandus Minor", 
-							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Heal" 
-						},
 					]
 				},
 				{
@@ -136,6 +129,13 @@
 					"Elements": [
 						{ "Type": "Title", "Text": "List of Spells" },
 						{ "Type": "Divider", "Sizing": "Fill" },
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Medicandus Minor", 
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Heal" 
+						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
@@ -162,20 +162,6 @@
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
-							"Text": "Perfundere Viridibus",
-							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.GreenRain" 
-						},
-						{ 
-							"Type": "Paragraph",
-							"Description": "Jump to spell",
-							"Text": "Flammae Iacere",
-							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Fireball" 
-						},
-						{ 
-							"Type": "Paragraph",
-							"Description": "Jump to spell",
 							"Text": "Medicandus Medius", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
 							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Heal"
@@ -190,9 +176,23 @@
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
+							"Text": "Perfundere Viridibus",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.GreenRain" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Flammae Iacere",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Fireball" 
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
 							"Text": "Litore Ponere\n",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.BeachWarp" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.WarpBeach" 
 						},
 					]
 				},
@@ -280,13 +280,6 @@
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
-							"Text": "Ad Harenas",
-							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpDesert" 
-						},
-						{ 
-							"Type": "Paragraph",
-							"Description": "Jump to spell",
 							"Text": "Domi Redire",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
 							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpHome" 
@@ -304,6 +297,13 @@
 							"Text": "Resurgere Maxime",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
 							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Regen"
+						},
+						{ 
+							"Type": "Paragraph",
+							"Description": "Jump to spell",
+							"Text": "Ad Harenas",
+							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpDesert" 
 						},
 						{ 
 							"Type": "Paragraph",
@@ -359,8 +359,55 @@
 							"Alignment": "Center",
 							"Scale": 2,
 							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_GoBack", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
 						}
+					]
+				},
+				{
+					"Id": "Novice.Heal",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Minimus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Healing - Novice", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 64, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth 5",
+								"Spiderbuttons.BETAS_AddStamina -50",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 stamina\nEffect: +5 HP" },
+					]
+				},
+				{
+					"Id": "Novice.Regen",
+					"ChapterId": "Novice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Minime", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Vigor - Novice", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 128, "Y": 0, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -50",
+								"Spiderbuttons.BETAS_AddStamina 5",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 HP\nEffect: +5 stamina" },
 					]
 				},
 				{
@@ -371,7 +418,7 @@
 						{ "Type": "Paragraph", "Text": "Launch Fireworks", "Alignment": "Center" },
 						{ "Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 192, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
@@ -392,53 +439,8 @@
 							"Alignment": "Center",
 							"Scale": 2,
 							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_GoBack", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
 						}
-					]
-				},
-				{
-					"Id": "Novice.Heal",
-					"ChapterId": "Novice",
-					"Elements": [
-						{ "Type": "Heading", "Text": "Medicandus Minimus", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Minor Healing", "Alignment": "Center" },
-						{ "Type": "Image", 
-							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
-							"Scale": 4,
-							"Alignment": "Center",
-							
-							"Actions": [
-								"Spiderbuttons.BETAS_AddHealth 15",
-								"Spiderbuttons.BETAS_AddStamina -50",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 1",
-							]
-						},
-						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 stamina\nEffect: +15 HP" },
-					]
-				},
-				{
-					"Id": "Novice.Regen",
-					"ChapterId": "Novice",
-					"Elements": [
-						{ "Type": "Heading", "Text": "Resurgere Minime", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Minor Energy", "Alignment": "Center" },
-						{ 
-							"Type": "Image", 
-							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
-							"Scale": 4,
-							"Alignment": "Center",
-							
-							"Actions": [
-								"Spiderbuttons.BETAS_AddHealth -50",
-								"Spiderbuttons.BETAS_AddStamina 15",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 1",
-							]
-						},
-						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 HP\nEffect: +15 stamina" },
 					]
 				},
 				{
@@ -450,20 +452,21 @@
 						{ 
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 256, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							"Condition": "PLAYER_HAS_ITEM Current 770 3",
 							
 							"Actions": [
-								"spacechase0.SpaceCore_TriggerSpawnGroup {{ModId}}_TreeSpawnGroup 0,0,50,50",
+								"spacechase0.SpaceCore_TriggerSpawnGroup {{ModId}}_TreeSpawnGroup Farm 1,1,{{FarmSizeX}},{{FarmSizeY}}",
+								"RemoveItem 770 3",
 								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
 						{
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations_BW" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 64, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 256, "Y": 0, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							"Condition": "!PLAYER_HAS_ITEM Current 770 3",
@@ -484,7 +487,7 @@
 							"Alignment": "Center",
 							"Scale": 2,
 							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_GoBack", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
 						}
 					]
 				},
@@ -499,7 +502,7 @@
 						{ 
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 0, "Y": 48, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
@@ -522,8 +525,53 @@
 							"Alignment": "Center",
 							"Scale": 2,
 							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_GoBack", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
 						}
+					]
+				},
+				{
+					"Id": "Apprentice.Heal",
+					"ChapterId": "Apprentice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Healing - Apprentice", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 64, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth 10",
+								"Spiderbuttons.BETAS_AddStamina -50",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +15 HP" },
+					]
+				},
+				{
+					"Id": "Apprentice.Regen",
+					"ChapterId": "Apprentice",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Minus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Vigor - Apprentice", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 128, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -50",
+								"Spiderbuttons.BETAS_AddStamina 10",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 1",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +15 stamina" },
 					]
 				},
 				{
@@ -535,7 +583,7 @@
 						{ 
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
@@ -558,53 +606,664 @@
 							"Alignment": "Center",
 							"Scale": 2,
 							"Padding": 2,
-							"Action": "PeacefulEnd.Parchment_GoBack", 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
 						}
 					]
 				},
 				{
-					"Id": "Apprentice.Heal",
+					"Id": "Apprentice.Hop",
 					"ChapterId": "Apprentice",
 					"Elements": [
-						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Minor Healing", "Alignment": "Center" },
+						{ "Type": "Heading", "Text": "Iter Ad Vicinitatem", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Short-Range Teleport", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 256, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_QuestionDialogue {{ModId}}_Hop",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Manipulate the fabric of reality and warp a short range away.\n\nCost: 5 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				
+				// AMATEUR SPELLS
+				{
+					"Id": "Amateur.Storm",
+					"ChapterId": "Amateur",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Dies Tempestatis", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Storm Spell", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WeatherForTomorrow Default Storm",
+								"Spiderbuttons.BETAS_AddStamina -30",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Summon the spirits of lightning and thunder and prepare for a storm tomorrow.\n\nCost: 30 stamina." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Amateur.Heal",
+					"ChapterId": "Amateur",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Medius", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Heal - Amateur", "Alignment": "Center" },
 						{ "Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 64, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth 10",
+								"Spiderbuttons.BETAS_AddStamina -30",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +25 HP" },
+					]
+				},
+				{
+					"Id": "Amateur.Regen",
+					"ChapterId": "Amateur",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Medio", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Vigor - Amateur", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 128, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -30",
+								"Spiderbuttons.BETAS_AddStamina 10",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +25 stamina" },
+					]
+				},
+				{
+					"Id": "Amateur.GreenRain",
+					"ChapterId": "Amateur",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Perfundere Viridibus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Green Wash", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WeatherForTomorrow Default GreenRain",
+								"Spiderbuttons.BETAS_AddStamina -30",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Drench the area in a mossy green storm tomorrow.\n\nCost: 30 stamina." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Amateur.Fireball",
+					"ChapterId": "Amateur",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Flammae Iacere", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Fireball", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 256, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_QuestionDialogue {{ModId}}_DirectionalFireball",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Throw a fiery blast at your surroundings.\n\nCost: 40 stamina." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Amateur.WarpBeach",
+					"ChapterId": "Amateur",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Litore Ponere", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Short-Range Teleport", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 320, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WarpFarmer Beach 20 4 2",
+								"Spiderbuttons.BETAS_AddStamina -15",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to Pelican Town's beach.\n\nCost: 15 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				// ADEPT SPELLS 
+				{
+					"Id": "Adept.BagOfHolding",
+					"ChapterId": "Adept",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Sacculus Continens", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Bag of Holding", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 0, "Y": 144, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_ShowBag {{ModId}}_BagOfHolding BigChest",
+								"Spiderbuttons.BETAS_AddStamina -1",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Access a dimensional bag from anywhere to store your many odds and ends.\n\nCost: 1 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Adept.Heal",
+					"ChapterId": "Adept",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Magnus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Heal - Adept", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 64, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth 20",
+								"Spiderbuttons.BETAS_AddStamina -30",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +20 HP" },
+					]
+				},
+				{
+					"Id": "Adept.Regen",
+					"ChapterId": "Adept",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Magne", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Vigor - Adept", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 128, "Y": 144, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -30",
+								"Spiderbuttons.BETAS_AddStamina 20",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +20 stamina" },
+					]
+				},
+				{
+					"Id": "Adept.WarpTown",
+					"ChapterId": "Adept",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Ad Urbem", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Town Teleport", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WarpFarmer Town 29 67 2",
+								"Spiderbuttons.BETAS_AddStamina -15",
+								"IncrementStat {{ModId}}_Spellcasting 4",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to Pelican Town's square.\n\nCost: 15 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				
+				// SCHOLAR SPELLS 
+				{
+					"Id": "Scholar.Lightning",
+					"ChapterId": "Scholar",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Fulmina Iacere", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Throw Lightning", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 256, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"mushymato.MMAP_QuestionDialogue {{ModId}}_DirectionalLightning",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Summon a bolt of lightning from the heavens.\n\nCost: 30 stamina." },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Scholar.Heal",
+					"ChapterId": "Scholar",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Maior", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Heal - Scholar", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 64, "Y": 96, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 30",
-								"Spiderbuttons.BETAS_AddStamina -50",
+								"Spiderbuttons.BETAS_AddStamina -30",
 								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 1",
+								"IncrementStat {{ModId}}_Spellcasting 3",
 							]
 						},
-						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +15 HP" },
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +30 HP" },
 					]
 				},
 				{
-					"Id": "Apprentice.Regen",
-					"ChapterId": "Apprentice",
+					"Id": "Scholar.Regen",
+					"ChapterId": "Scholar",
 					"Elements": [
-						{ "Type": "Heading", "Text": "Resurgere Minus", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Minor Energy", "Alignment": "Center" },
+						{ "Type": "Heading", "Text": "Resurgere Magne", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Vigor - Scholar", "Alignment": "Center" },
 						{ 
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
-							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 64, "Height": 48 },
+							"TextureSourceRectangle": { "X": 128, "Y": 144, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_AddHealth -50",
+								"Spiderbuttons.BETAS_AddHealth -30",
 								"Spiderbuttons.BETAS_AddStamina 30",
 								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 1",
+								"IncrementStat {{ModId}}_Spellcasting 3",
 							]
 						},
-						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +15 stamina" },
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +30 stamina" },
+					]
+				},
+				{
+					"Id": "Scholar.WarpMines",
+					"ChapterId": "Scholar",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Ad Cavernas", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Town Teleport", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WarpFarmer Mine 19 7 2",
+								"Spiderbuttons.BETAS_AddStamina -15",
+								"IncrementStat {{ModId}}_Spellcasting 4",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to the mines.\n\nCost: 15 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Scholar.Speed",
+					"ChapterId": "Scholar",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Agricola Festinus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Major Haste", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"AddBuff 22 24000",
+								"Spiderbuttons.BETAS_AddStamina -25",
+								"IncrementStat {{ModId}}_Spellcasting 5",
+								"PeacefulEnd.Parchment_CloseBook"
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Harness the power of the wind to increase your speed.\n\nCost: 25 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				
+				// EXPERT SPELLS 
+				{
+					"Id": "Expert.WarpHome",
+					"ChapterId": "Expert",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Domi Redire", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Return Home", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WarpFarmer BusStop 10 23 3",
+								"Spiderbuttons.BETAS_AddStamina -15",
+								"IncrementStat {{ModId}}_Spellcasting 4",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you home.\n\nCost: 15 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Expert.Heal",
+					"ChapterId": "Expert",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Medicandus Maximus", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Healing - Expert", "Alignment": "Center" },
+						{ "Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 64, "Y": 96, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth 50",
+								"Spiderbuttons.BETAS_AddStamina -30",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +50 HP" },
+					]
+				},
+				{
+					"Id": "Expert.Regen",
+					"ChapterId": "Expert",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Resurgere Maxime", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Vigor - Expert", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 128, "Y": 144, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_AddHealth -30",
+								"Spiderbuttons.BETAS_AddStamina 50",
+								"Spiderbuttons.BETAS_PlaySound yoba",
+								"IncrementStat {{ModId}}_Spellcasting 3",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +30 stamina" },
+					]
+				},
+				{
+					"Id": "Expert.WarpDesert",
+					"ChapterId": "Expert",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Ad Harenas", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Desert Sands", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WarpFarmer Desert 18 11 2",
+								"Spiderbuttons.BETAS_AddStamina -20",
+								"IncrementStat {{ModId}}_Spellcasting 6",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to the desert.\n\nCost: 20 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				{
+					"Id": "Expert.LoveSpell",
+					"ChapterId": "Expert",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Amor Aetatum", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Spell of Love", "Alignment": "Center" },
+						{ 
+							"Type": "Image", 
+							"TexturePath": "{{ModId}}/Illustrations" ,
+							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
+							"Scale": 4,
+							"Alignment": "Center",
+							
+							"Actions": [
+								"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_CurrentFriendshipStoredValue {{Round: {{Query: {{Hearts:{{TodaysNPC}} }} * 250 }} }}",
+								"Spiderbuttons.BETAS_SetFriendshipPoints {{TodaysNPC}} 2500",
+								"AddMail Current {{ModId}}_UsedLoveSpellToday received",
+								"AddConversationTopic {{ModId}}_UsedLoveSpell_{{TodaysNPC}}",
+								"Spiderbuttons.BETAS_AddStamina -100",
+								"IncrementStat {{ModId}}_Spellcasting 6",
+							]
+						},
+						{ "Type": "Paragraph", "Text": "Reportedly a classic love spell, though I have never seen it performed firsthand. Reports on its effects vary; I have also not yet found a way to direct it at a single recipient. I advise caution if proceeding.\nToday's NPC: {{TodaysNPC}}\nCost: 100 stamina" },
+						{ 
+							"Type": "Button", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+							"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+							"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+							"Text": "Return to spell list",
+							"FontType": "Small",
+							"Sizing": "ShrinkToFit",
+							"Alignment": "Center",
+							"Scale": 2,
+							"Padding": 2,
+							"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+						}
+					]
+				},
+				
+				// AFTERWORD
+				{
+					"Id": "Afterword",
+					"ChapterId": "Expert",
+					"Elements": [
+						{ "Type": "Heading", "Text": "Afterword", "Alignment": "Center" },
+						{ 
+							"Type": "Paragraph", 
+							"Text": "    p", 
+							"Scale": "{{TextScale}}"
+						}
 					]
 				},
 			]

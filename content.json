@@ -1,5 +1,5 @@
 {
-	"Format": "2.9.0",
+	"Format": "2.8.0",
 	"ConfigSchema": { // i18n this
 		"ExperienceNeeded": {
 			"Default": 30,
@@ -8,7 +8,17 @@
 		"TextScale": {
 			"Default": 0.9,
 			"Description": "Some spellbook text is scalable. Adjust this value up or down to make text smaller or bigger. Warning: text bigger than 0.9 may go off pages."
-		}
+		},
+		"FarmSizeX": {
+			"Default": 79,
+			"Description": "Width of the farm map, in tiles. If this is not input correctly, the spell to spawn trees may throw errors.",
+			"Section": "Input custom information:"
+		},
+		"FarmSizeY": {
+			"Default": 64,
+			"Description": "Height of the farm map, in tiles. If this is not input correctly, the spell to spawn trees may throw errors.",
+			"Section": "Input custom information:"
+		},
 	},
 	"Changes": [
 	{
@@ -29,9 +39,9 @@
 				"DisplayName": "Minor Arcana, vol. 1",
 				"Description": "A book of spells, complete with foreword and annotations.",
 				"Type": "Basic",
-				"Category": -102,
+				"Category": 0,
 				"Price": 50000,
-				"Texture": "{{ModId}}_Items",
+				"Texture": "{{ModId}}/Items",
 				"SpriteIndex": 0,
 				"CanBeGivenAsGift": false,
 				"CanBeTrashed": true,
@@ -110,6 +120,10 @@
 	{
 		"Name": "LevelThreshold",
 		"Value": "{{Round: {{Query: (1 + {{PlayerSpellcastingLevel}}) * {{ExperienceNeeded}} }} }}"
+	},
+	{
+		"Name": "TodaysNPC",
+		"Value": "{{Random: Abigail, Alex, Elliott, Emily, Haley, Harvey, Leah, Maru, Penny, Sam, Sebastian, Shane }}"
 	}
   ]
 }
