@@ -12,7 +12,7 @@
 				"MarkActionApplied": false,
 				"Actions": [
 					"AddMail Current {{ModId}}_isApprentice received",
-					// give player +1 level - check parchment for adding pages
+					// give player +1 level
 				]
 			},
 			"{{ModId}}_LevelUpNotification": {
@@ -43,7 +43,8 @@
 					"RemoveMail Current {{ModId}}_UsedLoveSpellToday all",
 					"Spiderbuttons.BETAS_SetFriendshipPoints {{TodaysNPC}} [PlayerModData {{ModId}}_CurrentFriendshipStoredValue]", // revert friendship to normal
 					"AddConversationTopic {{ModId}}_LoveSpellWoreOff_{{TodaysNPC}}", // give specific NPC weirded out CT
-					"RemoveConversationTopic {{ModId}}_UsedLoveSpell_{{TodaysNPC}}" // remove besotted love spell CT
+					"RemoveConversationTopic {{ModId}}_UsedLoveSpell_{{TodaysNPC}}", // remove besotted love spell CT
+					"RemoveMail Current {{TodaysNPC}}_{{ModId}}_UsedLoveSpell_{{TodaysNPC}}", // allow besotted line to be re-added
 				]
 			},
 		}

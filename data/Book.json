@@ -12,29 +12,49 @@
 			"Overlay": [
 				{ 
 					"Type": "Image", 
-					"TexturePath": "{{ModId}}_Textures", 
-					"Position": { "X": 0, "Y": 0 } 
+					"TexturePath": "{{ModId}}/Cover", 
+					"Alignment": "Center",
+					"VerticalAlignment": "Center",
+					"Position": { "X": 0, "Y": 0 },
+					"Scale": 6,
+					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
 				}, 
-				{ 
-					"Type": "Title", 
-					"Text": "Minor Arcana", 
-					"Alignment": "Center", 
-					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
-				},
-				{ 
-					"Type": "Heading", 
-					"Text": "vol. 1", 
-					"Alignment": "Center", 
-					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
-				},
-				{ 
-					"Type": "Paragraph", 
-					"Text": "\n\n\nwith foreword and annotations by Edwin Payne", 
-					"Alignment": "Center", 
-					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
-				}
 			],
 			"Pages": [  
+				{
+					"Id": "Intro1",
+					"Elements": [
+						{ 
+							"Type": "Title", 
+							"Text": "Minor Arcana", 
+							"Alignment": "Center", 
+						},
+						{ 
+							"Type": "Heading", 
+							"Text": "vol. 1", 
+							"Alignment": "Center", 
+						},
+						{ 
+							"Type": "Paragraph", 
+							"Text": "\n\n\nwith foreword and annotations by Edwin Payne", 
+							"Alignment": "Center", 
+						},
+						{
+							"Type": "Image",
+							"TexturePath": "{{ModId}}/CharlesNotes",
+						}
+					]
+				},
+				{
+					"Id": "Intro2",
+					"Elements": [
+						{
+							"Type": "Image",
+							"TexturePath": "{{ModId}}/Cover",
+						}
+					]
+				},
+				
 				// TOC AND FOREWORD
 				{
 					"Id": "Foreword",
@@ -104,7 +124,7 @@
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Hortum Colere\n", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Weeds" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Trees" 
 						},
 						{ "Type": "Divider", "Sizing": "Fill" },
 						{ "Type": "Heading", "Text": "Apprentice" },
@@ -344,7 +364,8 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_RequirementsNotMet"
+								"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_RequirementsNotMet",
+								"Spiderbuttons.BETAS_PlaySound cancel",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Conjure luminous insects out of the aether to light your path.\n\nCost: 10 stamina, 1 torch." },
@@ -378,7 +399,7 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 5",
 								"Spiderbuttons.BETAS_AddStamina -50",
-								"Spiderbuttons.BETAS_PlaySound yoba",
+								"Spiderbuttons.BETAS_PlaySound healSound",
 								"IncrementStat {{ModId}}_Spellcasting 1",
 								"PeacefulEnd.Parchment_CloseBook"
 							]
@@ -402,7 +423,7 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth -50",
 								"Spiderbuttons.BETAS_AddStamina 5",
-								"Spiderbuttons.BETAS_PlaySound yoba",
+								"Spiderbuttons.BETAS_PlaySound fairy_heal",
 								"IncrementStat {{ModId}}_Spellcasting 1",
 								"PeacefulEnd.Parchment_CloseBook"
 							]
@@ -424,7 +445,6 @@
 							
 							"Actions": [
 								"mushymato.MMAP_QuestionDialogue {{ModId}}_FireTheWorks",
-								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Launch a colorful explosion into the air.\n\nCost: 15 stamina" },
@@ -444,7 +464,7 @@
 					]
 				},
 				{
-					"Id": "Novice.Weeds",
+					"Id": "Novice.Trees",
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Hortum Colere", "Alignment": "Center" },
@@ -458,8 +478,10 @@
 							"Condition": "PLAYER_HAS_ITEM Current 770 3",
 							
 							"Actions": [
+								"Spiderbuttons.BETAS_PlaySound cut",
 								"spacechase0.SpaceCore_TriggerSpawnGroup {{ModId}}_TreeSpawnGroup Farm 1,1,{{FarmSizeX}},{{FarmSizeY}}",
 								"RemoveItem 770 3",
+								"IncrementStat {{ModId}}_Spellcasting 1",
 								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
@@ -472,7 +494,9 @@
 							"Condition": "!PLAYER_HAS_ITEM Current 770 3",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_RequirementsNotMet"
+								"Spiderbuttons.BETAS_Message Strings/StringsFromCSFiles:{{ModId}}_RequirementsNotMet",
+								"Spiderbuttons.BETAS_PlaySound cancel",
+								// close book?
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Grow an unreasonable amount of trees on your farm.\n\nCost: 3 mixed seeds, 20 stamina" },
@@ -507,9 +531,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
+								"Spiderbuttons.BETAS_PlaySound dropItemInWater",
 								"Spiderbuttons.BETAS_WeatherForTomorrow Default Rain",
 								"Spiderbuttons.BETAS_AddStamina -30",
 								"IncrementStat {{ModId}}_Spellcasting 2",
+								// indicate weather here?
 								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
@@ -544,8 +570,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 10",
 								"Spiderbuttons.BETAS_AddStamina -50",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 1",
+								"Spiderbuttons.BETAS_PlaySound healSound",
+								"IncrementStat {{ModId}}_Spellcasting 2",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +15 HP" },
@@ -567,8 +594,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth -50",
 								"Spiderbuttons.BETAS_AddStamina 10",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 1",
+								"Spiderbuttons.BETAS_PlaySound fairy_heal",
+								"IncrementStat {{ModId}}_Spellcasting 2",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +15 stamina" },
@@ -589,6 +617,7 @@
 							
 							"Actions": [
 								"AddBuff 22",
+								"Spiderbuttons.BETAS_PlaySound crit",
 								"Spiderbuttons.BETAS_AddStamina -20",
 								"IncrementStat {{ModId}}_Spellcasting 2",
 								"PeacefulEnd.Parchment_CloseBook"
@@ -659,6 +688,7 @@
 							"Alignment": "Center",
 							
 							"Actions": [
+								"Spiderbuttons.BETAS_PlaySound dropItemInWater",
 								"Spiderbuttons.BETAS_WeatherForTomorrow Default Storm",
 								"Spiderbuttons.BETAS_AddStamina -30",
 								"IncrementStat {{ModId}}_Spellcasting 3",
@@ -696,8 +726,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 10",
 								"Spiderbuttons.BETAS_AddStamina -30",
-								"Spiderbuttons.BETAS_PlaySound yoba",
+								"Spiderbuttons.BETAS_PlaySound healSound",
 								"IncrementStat {{ModId}}_Spellcasting 3",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +25 HP" },
@@ -719,8 +750,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth -30",
 								"Spiderbuttons.BETAS_AddStamina 10",
-								"Spiderbuttons.BETAS_PlaySound yoba",
+								"Spiderbuttons.BETAS_PlaySound fairy_heal",
 								"IncrementStat {{ModId}}_Spellcasting 3",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +25 stamina" },
@@ -740,9 +772,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
+								"Spiderbuttons.BETAS_PlaySound bubbles",
 								"Spiderbuttons.BETAS_WeatherForTomorrow Default GreenRain",
 								"Spiderbuttons.BETAS_AddStamina -30",
 								"IncrementStat {{ModId}}_Spellcasting 3",
+								// action to indicate weather tomorrow here?
 								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
@@ -763,7 +797,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.Fireball",
+					"Id": "Amateur.Fireball", // sound? fireball, flamespell
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Flammae Iacere", "Alignment": "Center" },
@@ -809,9 +843,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_WarpFarmer Beach 20 4 2",
+								"Spiderbuttons.BETAS_PlaySound objectiveComplete",
 								"Spiderbuttons.BETAS_AddStamina -15",
 								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_WarpFarmer Beach 20 4 2",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to Pelican Town's beach.\n\nCost: 15 stamina" },
@@ -845,8 +881,9 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"mushymato.MMAP_ShowBag {{ModId}}_BagOfHolding BigChest",
+								"Spiderbuttons.BETAS_PlaySound qi_shop",
 								"Spiderbuttons.BETAS_AddStamina -1",
+								"mushymato.MMAP_ShowBag {{ModId}}_BagOfHolding BigChest",
 								"PeacefulEnd.Parchment_CloseBook"
 							]
 						},
@@ -881,8 +918,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 20",
 								"Spiderbuttons.BETAS_AddStamina -30",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_PlaySound healSound",
+								"IncrementStat {{ModId}}_Spellcasting 4",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +20 HP" },
@@ -904,8 +942,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth -30",
 								"Spiderbuttons.BETAS_AddStamina 20",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_PlaySound fairy_heal",
+								"IncrementStat {{ModId}}_Spellcasting 4",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +20 stamina" },
@@ -925,9 +964,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_WarpFarmer Town 29 67 2",
+								"Spiderbuttons.BETAS_PlaySound objectiveComplete",
 								"Spiderbuttons.BETAS_AddStamina -15",
 								"IncrementStat {{ModId}}_Spellcasting 4",
+								"Spiderbuttons.BETAS_WarpFarmer Town 29 67 2",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to Pelican Town's square.\n\nCost: 15 stamina" },
@@ -949,7 +990,7 @@
 				
 				// SCHOLAR SPELLS 
 				{
-					"Id": "Scholar.Lightning",
+					"Id": "Scholar.Lightning", // sound
 					"ChapterId": "Scholar",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Fulmina Iacere", "Alignment": "Center" },
@@ -996,8 +1037,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 30",
 								"Spiderbuttons.BETAS_AddStamina -30",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_PlaySound healSound",
+								"IncrementStat {{ModId}}_Spellcasting 5",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +30 HP" },
@@ -1019,8 +1061,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth -30",
 								"Spiderbuttons.BETAS_AddStamina 30",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_PlaySound fairy_heal",
+								"IncrementStat {{ModId}}_Spellcasting 5",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +30 stamina" },
@@ -1040,9 +1083,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_WarpFarmer Mine 19 7 2",
+								"Spiderbuttons.BETAS_PlaySound objectiveComplete",
 								"Spiderbuttons.BETAS_AddStamina -15",
-								"IncrementStat {{ModId}}_Spellcasting 4",
+								"IncrementStat {{ModId}}_Spellcasting 5",
+								"Spiderbuttons.BETAS_WarpFarmer Mine 19 7 2",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to the mines.\n\nCost: 15 stamina" },
@@ -1075,6 +1120,7 @@
 							"Alignment": "Center",
 							
 							"Actions": [
+								"Spiderbuttons.BETAS_PlaySound crit",
 								"AddBuff 22 24000",
 								"Spiderbuttons.BETAS_AddStamina -25",
 								"IncrementStat {{ModId}}_Spellcasting 5",
@@ -1113,9 +1159,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_WarpFarmer BusStop 10 23 3",
+								"Spiderbuttons.BETAS_PlaySound objectiveComplete",
 								"Spiderbuttons.BETAS_AddStamina -15",
-								"IncrementStat {{ModId}}_Spellcasting 4",
+								"IncrementStat {{ModId}}_Spellcasting 6",
+								"Spiderbuttons.BETAS_WarpFarmer BusStop 10 23 3",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you home.\n\nCost: 15 stamina" },
@@ -1149,8 +1197,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth 50",
 								"Spiderbuttons.BETAS_AddStamina -30",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_PlaySound healSound",
+								"IncrementStat {{ModId}}_Spellcasting 6",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +50 HP" },
@@ -1172,8 +1221,9 @@
 							"Actions": [
 								"Spiderbuttons.BETAS_AddHealth -30",
 								"Spiderbuttons.BETAS_AddStamina 50",
-								"Spiderbuttons.BETAS_PlaySound yoba",
-								"IncrementStat {{ModId}}_Spellcasting 3",
+								"Spiderbuttons.BETAS_PlaySound fairy_heal",
+								"IncrementStat {{ModId}}_Spellcasting 6",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +30 stamina" },
@@ -1193,9 +1243,11 @@
 							"Alignment": "Center",
 							
 							"Actions": [
-								"Spiderbuttons.BETAS_WarpFarmer Desert 18 11 2",
+								"Spiderbuttons.BETAS_PlaySound objectiveComplete",
 								"Spiderbuttons.BETAS_AddStamina -20",
 								"IncrementStat {{ModId}}_Spellcasting 6",
+								"Spiderbuttons.BETAS_WarpFarmer Desert 18 11 2",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
 						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to the desert.\n\nCost: 20 stamina" },
@@ -1215,7 +1267,7 @@
 					]
 				},
 				{
-					"Id": "Expert.LoveSpell",
+					"Id": "Expert.Love",
 					"ChapterId": "Expert",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Amor Aetatum", "Alignment": "Center" },
@@ -1226,17 +1278,21 @@
 							"TextureSourceRectangle": { "X": 192, "Y": 48, "Width": 64, "Height": 48 },
 							"Scale": 4,
 							"Alignment": "Center",
+							"Description": "Today this spell will affect {{TodaysNPC}}.",
 							
 							"Actions": [
+								"Spiderbuttons.BETAS_PlaySound qi_shop_purchase",
+								"RemoveMail Current {{TodaysNPC}}_{{ModId}}_LoveSpellWoreOff_{{TodaysNPC}}",
 								"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_CurrentFriendshipStoredValue {{Round: {{Query: {{Hearts:{{TodaysNPC}} }} * 250 }} }}",
 								"Spiderbuttons.BETAS_SetFriendshipPoints {{TodaysNPC}} 2500",
 								"AddMail Current {{ModId}}_UsedLoveSpellToday received",
 								"AddConversationTopic {{ModId}}_UsedLoveSpell_{{TodaysNPC}}",
 								"Spiderbuttons.BETAS_AddStamina -100",
 								"IncrementStat {{ModId}}_Spellcasting 6",
+								"PeacefulEnd.Parchment_CloseBook",
 							]
 						},
-						{ "Type": "Paragraph", "Text": "Reportedly a classic love spell, though I have never seen it performed firsthand. Reports on its effects vary; I have also not yet found a way to direct it at a single recipient. I advise caution if proceeding.\nToday's NPC: {{TodaysNPC}}\nCost: 100 stamina" },
+						{ "Type": "Paragraph", "Text": "Reportedly a classic love spell, though I have never seen it performed firsthand. Reports on its effects vary; I have also not yet found a way to direct it at a single recipient. I advise caution if proceeding.\nCost: 100 stamina" },
 						{ 
 							"Type": "Button", 
 							"TexturePath": "Assets/PeacefulEnd.Parchment/button1",

@@ -1,4 +1,6 @@
 {
   "ExperienceNeeded": "30",
-  "TextScale": "0.9"
+  "TextScale": "0.9",
+  "FarmSizeX": "79",
+  "FarmSizeY": "64"
 }
