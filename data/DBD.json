@@ -20,10 +20,13 @@
 			"{{ModId}}_BookOnShelf": {
 				"Id": "{{ModId}}_BookOnShelf",
 				"Trigger": "Manual",
-				"Condition": true,
+				"Condition": "!PLAYER_HAS_MAIL Current {{ModId}}_GotSpellbook",
+				"MarkActionApplied": true,
 				"Actions": [
 					"Spiderbuttons.BETAS_PlaySound secret1",
-					"Spiderbuttons.BETAS_HoldUpItem {{ModId}}_Spellbook"
+					"Spiderbuttons.BETAS_HoldUpItem {{ModId}}_Spellbook",
+					"AddMail Current {{ModId}}_GotSpellbook received",
+					"AddConversationTopic {{ModId}}_CT.GotSpellbook 3"
 				]
 			}
 		}

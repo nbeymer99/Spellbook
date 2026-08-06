@@ -6,6 +6,12 @@
 		"Entries": {
 			"{{ModId}}_LevelUpMessage": "You leveled up! Check your spellbook for new pages.",
 			"{{ModId}}_RequirementsNotMet": "You don't have the required components to cast this spell.",
+			"{{ModId}}_Level.0": "Novice",
+			"{{ModId}}_Level.1": "Apprentice",
+			"{{ModId}}_Level.2": "Amateur",
+			"{{ModId}}_Level.3": "Adept",
+			"{{ModId}}_Level.4": "Scholar",
+			"{{ModId}}_Level.5": "Expert",
 		}
 	}
   ]

@@ -61,7 +61,7 @@
 			"HasMod |contains=handwrittenhello.dbda": false,
 		},
 		"Entries": {
-			"{{ModId}}_GiveSpellbook": "@,^I recently came across the ghost of a young man named Edwin in possession of a rare magical tome. I of course already have a copy of my own from when I first began learning the arcane arts, but I thought it might be of some use to you. If you find yourself interested, why not try it out?^ -M. Rasmodius, Wizard %item  %%[#]Book of Spells"
+			"{{ModId}}_GiveSpellbook": "@,^I recently came across the ghost of a young man named Edwin in possession of a rare magical tome. I of course already have a copy of my own from when I first began learning the arcane arts, but I thought it might be of some use to you. If you find yourself interested, why not try it out?^ -M. Rasmodius, Wizard %item id (O){{ModId}}_Spellbook %% %item conversationTopic {{ModId}}_CT.GotSpellbook 3 %%[#]Book of Spells"
 		}
 	},
 	{
@@ -76,12 +76,15 @@
 		"Action": "EditData",
 		"Target": "Characters/Dialogue/Haley, Characters/Dialogue/Alex, Characters/Dialogue/Elliott, Characters/Dialogue/Harvey, Characters/Dialogue/Sam, Characters/Dialogue/Abigail, Characters/Dialogue/Leah, Characters/Dialogue/Maru, Characters/Dialogue/Penny, Characters/Dialogue/Caroline, Characters/Dialogue/Demetrius, Characters/Dialogue/Clint, Characters/Dialogue/Evelyn, Characters/Dialogue/George, Characters/Dialogue/Gus, Characters/Dialogue/Jas, Characters/Dialogue/Jodi, Characters/Dialogue/Kent, Characters/Dialogue/Lewis, Characters/Dialogue/Linus, Characters/Dialogue/Marnie, Characters/Dialogue/Pam, Characters/Dialogue/Pierre, Characters/Dialogue/Robin, Characters/Dialogue/Vincent, Characters/Dialogue/Willy, Characters/Dialogue/Sebastian, Characters/Dialogue/Shane, Characters/Dialogue/Emily, Characters/Dialogue/GuntherSilvian, Characters/Dialogue/MarlonFay, Characters/Dialogue/MorrisTod, Characters/Dialogue/handwrittenhello.dbda_EdwinPayne, Characters/Dialogue/handwrittenhello.dbda_CharlesRowland, Characters/Dialogue/handwrittenhello.dbda_CrystalPalace, Characters/Dialogue/handwrittenhello.dbda_NikoSasaki, Characters/Dialogue/handwrittenhello.dbda_CatKing, Characters/Dialogue/handwrittenhello.dbda_MontyFinch, Characters/Dialogue/handwrittenhello.dbda_JennyButcher, Characters/Dialogue/handwrittenhello.dbda_EstherFinch, Characters/Dialogue/handwrittenhello.TFJ_Miriam",
 		"Entries": {
-			"{{ModId}}_CT.GotSpellbook": "{{i18n:{{TargetWithoutPath}}.CT.GotSpellbook}}"
+			"{{ModId}}_CT.GotSpellbook": "{{i18n:{{TargetWithoutPath}}.CT.GotSpellbook}}",
+			"{{ModId}}_CT.LoveSpell_Besotted": "{{i18n:{{TargetWithoutPath}}.CT.GotSpellbook}}",
+			"{{ModId}}_CT.LoveSpell_Aftermath": "{{i18n:{{TargetWithoutPath}}.CT.GotSpellbook}}",
 		}
 	}
   ],
 	
 	"DynamicTokens": [
+	// you're using ints to multiply the power icon
 	{
 		"Name": "PlayerSpellcastingLevel",
 		"Value": 0 // novice
