@@ -494,12 +494,7 @@
 					"Elements": [
 						{ 
 							"Type": "Paragraph", 
-							"Text": "    Fireflies, also known regionally as lightning bugs or glow worms, are relatively simple creatures to manifest using magic. This can be useful for instances where the magician wishes to light their surroundings, or as a simple party trick to impress non-magicians.",
-							//"Scale": "{{TextScale}}"
-						},
-						{ 
-							"Type": "Paragraph", 
-							"Text": "    To cast this spell, hold up a torch and read aloud the incantation below. It will be consumed and in its place a number of glowing insects will appear.",
+							"Text": "    Fireflies, also known regionally as lightning bugs or glow worms, are relatively simple creatures to manifest using magic. This can be useful for instances where the magician wishes to light their surroundings, or as a simple party trick to impress non-magicians.\n    To cast this spell, hold up a torch and read aloud the incantation below. It will be consumed and in its place a number of glowing insects will appear.",
 							//"Scale": "{{TextScale}}"
 						},
 					]
@@ -519,7 +514,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 50 stamina\n* Effect: +5 HP", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -576,7 +571,7 @@
 					"Elements": [
 						{ 
 							"Type": "Paragraph", 
-							"Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 stamina\nEffect: +5 HP" 
+							"Text": "    Applicable only in the most dire of situations, this spell allows the caster to heal themselves using their pool of stamina. Beware, for many a foolish magician, finding themselves close to death, has miscalculated their reserves and accidentally sent themselves into unconsciousness.\n    More advanced casters of this spell may be able to restore more life force using less energy." 
 						},
 					]
 				},
@@ -595,7 +590,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 50 HP\n* Effect: +5 stamina", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -650,7 +645,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 50 HP\nEffect: +5 stamina" },
+						{ "Type": "Paragraph", "Text": "    This spell was originally developed by a quite distasteful warlock who planned to drain the life out of his bothersome neighbors in exchange for more energy to power his wicked experiments.\n    Fortunately, it has since been adapted to work only on the caster themselves. Had I any life force to spare, I would find it quite useful, though a large portion of energy is lost during the exchange, enough to outweigh the benefits." },
 					]
 				},
 				{
@@ -667,7 +662,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 15 stamina\n* Effect: Launch fireworks", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -718,7 +713,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Launch a colorful explosion into the air.\n\nCost: 15 stamina" },
+						{ "Type": "Paragraph", "Text": "    Ignis Colorum has many useful applications, whether you wish to delight a friend with a dazzling display or wish to provide a helpful distraction during a fight. This is my compatriot's favorite spell in my repertoire, and more than once I have used it to get him out of a bind.\n    Color options include red, green, and purple." },
 					]
 				},
 				{
@@ -726,7 +721,7 @@
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Hortum Colere", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Summon Weeds", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "Garden of Plenty", "Alignment": "Center" },
 						{ 
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
@@ -742,12 +737,11 @@
 							"Scale": 4,
 							"Alignment": "Center",
 							"Condition": "!PLAYER_HAS_ITEM Current 770 3",
-							
-							
+							"Description": "Need at least 20 stamina and 3 mixed seeds.",
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 20 stamina, 3 mixed seeds\n* Effect: Farm forestation", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -820,7 +814,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Grow an unreasonable amount of trees on your farm.\n\nCost: 3 mixed seeds, 20 stamina" },
+						{ "Type": "Paragraph", "Text": "    I believe this spell originated with the druids of Starfall Grove, who desired to repopulate the trees on their land after deforestation efforts on the border. Beware of getting swept up by branches and roots, for these trees sprout nigh instantaneously from the ground.\n    This version of the spell has been carefully calculated to cover only the land which the caster owns, after copious complaints from disgruntled neighbors." },
 					]
 				},
 				
@@ -840,7 +834,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 30 stamina\n* Effect: Rain tomorrow", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -896,7 +890,9 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Gather clouds from across the skies and prepare for a downpour tomorrow.\n\nCost: 30 stamina." },
+						{ "Type": "Paragraph", 
+							"Text": "    Command over the skies is something long though to be only the providence of gods and spirits. Not so; with this handy spell, even apprentice magicians can guarantee a rainy day tomorow.\n    Remember to take an umbrella with you, lest the downpour soak the pages of this priceless tome and render it useless."
+						},
 					]
 				},
 				{
@@ -913,7 +909,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 30 stamina\n* Effect: +15 HP", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -968,7 +964,8 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Slightly more advanced than its predecessor, this healing spell is marginally more useful, though, in my opinion, only in dire situations. Trade energy for life.\n\nCost: 30 stamina\nEffect: +15 HP" },
+						{ "Type": "Paragraph", "Text": "    Slightly more advanced than its predecessor, this healing spell is marginally more useful, though, in my opinion, only in dire situations. Trade energy for life." },
+						//"Scale": "{{TextScale}}",
 					]
 				},
 				{
@@ -1423,7 +1420,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 30 stamina\n* Effect: Green rain tomorrow", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -1479,7 +1476,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Drench the area in a mossy green storm tomorrow.\n\nCost: 30 stamina." },
+						{ "Type": "Paragraph", "Text": "A phenomenon wholly unique to Stardew Valley, this spell allows the replication of the event known locally as 'green rain'.\n    Drench the area in a mossy green storm tomorrow, watch out for puddles, and harvest plenty of moss for use in potionmaking." },
 					]
 				},
 				{
@@ -1497,7 +1494,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 40 stamina\n* Effect: Launch a fireball", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -1548,7 +1545,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Throw a fiery blast at your surroundings.\n\nCost: 40 stamina." },
+						{ "Type": "Paragraph", "Text": "    For the combative spellcaster, Flammae Iacere is an invaluable weapon in the arsenal. Throw a fiery blast at your surroundings, but be careful not to get too close, lest your eyebrows be singed in the process.\n    This spell does 40 damage to anyone caught in its radius." },
 					]
 				},
 				{
@@ -1566,7 +1563,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 15 stamina\n	 Effect: Warp to the beach", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -1621,7 +1618,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to Pelican Town's beach.\n\nCost: 15 stamina" },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you on the sands of the beach, and be sure not to lose any loose pages in the process." },
 					]
 				},
 				// ADEPT SPELLS 
@@ -1640,7 +1637,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 1 stamina\n* Effect: Open dimensional storage", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -1694,7 +1691,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Access a dimensional bag from anywhere to store your many odds and ends.\n\nCost: 1 stamina" },
+						{ "Type": "Paragraph", "Text": "    I find this spell to be the most useful in my repertoire by far. Access a dimensional bag from anywhere to store your many odds and ends, and pull them back out again at a moment's notice.\n    (Though this spell requires concentration while rummaging through its contents, lest the caster accidentally get lost in non-space and vanish forever.)" },
 					]
 				},
 				{
@@ -1857,7 +1854,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 15 stamina\n* Effect: Warp to the beach", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -1912,7 +1909,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to Pelican Town's square.\n\nCost: 15 stamina" },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you in the town square, and be sure not to lose any loose pages in the process." },
 					]
 				},
 				
@@ -2146,7 +2143,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 15 stamina\n* Effect: Warp to the mines", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2201,7 +2198,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to the mines.\n\nCost: 15 stamina" },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you in the mines, and be sure not to lose any loose pages in the process." },
 					]
 				},
 				{
@@ -2219,7 +2216,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 25 stamina\n* Effect: Speed (6 minutes)", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2274,7 +2271,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Harness the power of the wind to increase your speed.\n\nCost: 25 stamina" },
+						{ "Type": "Paragraph", "Text": "    For advanced spellcasters and scholars of the arcane arts, there are simply never enough hours in the day, particularly when one must attend to such menial tasks as sleep. \n    Harness the power of the wind to increase your speed and accomplish more tasks in a single day." },
 					]
 				},
 				
@@ -2294,7 +2291,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 15 stamina\n* Effect: Warp home", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2349,7 +2346,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you home.\n\nCost: 15 stamina" },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you at home, and be sure not to lose any loose pages in the process." },
 					]
 				},
 				{
@@ -2366,7 +2363,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 30 stamina\n* Effect: +50 HP", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2421,7 +2418,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Trade energy for life. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 stamina\nEffect: +50 HP" },
+						{ "Type": "Paragraph", "Text": "    Finally, with expert knowledge, this spell gives the caster the ability to exchange energy for life at a positive rate.\n    With a bit of study and careful balance, it is even possible to generate life and energy from effectively nothing but practiced application of this spell." },
 					]
 				},
 				{
@@ -2439,7 +2436,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 30 HP\n* Effect: +50 stamina", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2494,7 +2491,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +30 stamina" },
+						{ "Type": "Paragraph", "Text": "    Finally, with expert knowledge, this spell gives the caster the ability to exchange life for energy at a positive rate.\n    With a bit of study and careful balance, it is even possible to generate life and energy from effectively nothing but practiced application of this spell." },
 					]
 				},
 				{
@@ -2512,7 +2509,7 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 15 stamina\n* Effect: Warp home", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2567,7 +2564,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Coax the winds into instantly carrying you to the desert.\n\nCost: 20 stamina" },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you on the sands of the desert, and be sure not to lose any loose pages in the process." },
 					]
 				},
 				{
@@ -2586,7 +2583,14 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 100 stamina\n* Effect: ???", 
+							"Condition": "!PLAYER_HAS_MAIL Current {{ModId}}_EverCastLoveSpell",
+							//"Scale": "{{TextScale}}",
+						},
+						{ 
+							"Type": "Paragraph",
+							"Text": "* Cost: 100 stamina\n* Effect: Force someone to fall madly in love with you for a day", 
+							"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_EverCastLoveSpell",
 							//"Scale": "{{TextScale}}",
 						},
 					]
@@ -2645,7 +2649,7 @@
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Reportedly a classic love spell, though I have never seen it performed firsthand. Reports on its effects vary; I have also not yet found a way to direct it at a single recipient. I advise caution if proceeding.\nCost: 100 stamina" },
+						{ "Type": "Paragraph", "Text": "    Reportedly a classic love spell, though I have never seen it performed firsthand. Reports on its effects vary, though they range from fairytales to downright disturbing. \n    I have also not yet found a way to direct it at a single recipient; its target seems random. I advise caution if proceeding, as nothing good can ever come from such blatant manipulation." },
 					]
 				},
 				
