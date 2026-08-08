@@ -41,6 +41,7 @@
 				"MarkActionApplied": false,
 				"Actions": [
 					"RemoveMail Current {{ModId}}_UsedLoveSpellToday all",
+					"AddMail Current {{ModId}}_EverCastLoveSpell received",
 					"Spiderbuttons.BETAS_SetFriendshipPoints {{TodaysNPC}} [PlayerModData {{ModId}}_CurrentFriendshipStoredValue]", // revert friendship to normal
 					"AddConversationTopic {{ModId}}_LoveSpellWoreOff_{{TodaysNPC}}", // give specific NPC weirded out CT
 					"RemoveConversationTopic {{ModId}}_UsedLoveSpell_{{TodaysNPC}}", // remove besotted love spell CT

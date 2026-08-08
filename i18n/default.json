@@ -1,4 +1,5 @@
 {
 	"UI.CastSpell": "Cast Spell",
-	"UI.GoBack": "Go Back",
+	"UI.RemoveBookmark": "Remove",
+	"UI.AddBookMark": "Bookmark",
 }

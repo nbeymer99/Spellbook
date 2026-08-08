@@ -5,7 +5,7 @@
 	"Target": "Data/PeacefulEnd.Parchment/Books",
 	"Entries": {
 		"{{ModId}}_Spellbook": {
-			"Format": "1.9.0",
+			"Format": "1.12.0",
 			"Id": "{{ModId}}_Spellbook",
 			"StartOnCover": true,
 			"Appearance": {
@@ -22,35 +22,12 @@
 				/* {
 					"Keybind": "1",
 					"Actions": [
-						// jump to bookmark 1
-					]
-				},
-				{
-					"Keybind": "2",
-					"Actions": [
-						// jump to bookmark 2
-					]
-				},
-				{
-					"Keybind": "3",
-					"Actions": [
-						// jump to bookmark 3
-					]
-				},
-				{
-					"Keybind": "4",
-					"Actions": [
-						// jump to bookmark 4
-					]
-				},
-				{
-					"Keybind": "5",
-					"Actions": [
-						// jump to bookmark 5
+						"PeacefulEnd.Parchment_JumpToPageId \"[Spiderbuttons.BETAS_PlayerModData {{ModId}}_SavedSpellPage]\""
 					]
 				}, */
 			],
 			"Overlay": [
+				// cover
 				{ 
 					"Type": "Image", 
 					"TexturePath": "{{ModId}}/Cover", 
@@ -60,6 +37,73 @@
 					"Scale": 6,
 					"Condition": "PeacefulEnd.Parchment_CurrentBookState Cover" 
 				}, 
+				// bookmarks
+				{
+					"Type": "Image",
+					"TexturePath": "Assets/Peacefulend.Parchment/bookmark1",
+					"TextureSourceRectangle": {
+						"X": 0,
+						"Y": 0,
+						"Width": 24,
+						"Height": 17
+					},
+					"HoverTextureSourceRectangle": {
+						"X": 0,
+						"Y": 17,
+						"Width": 24,
+						"Height": 17
+					},
+					"SpriteEffects": "FlipHorizontally",
+					"Position": {
+						"X": -65,
+						"Y": 164
+					},
+					"TintColor": "DarkRed",
+					"Scale": 4,
+					"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1",
+					"Description": "Spell List",
+					"Condition": "!PeacefulEnd.Parchment_CurrentBookState Cover, !PeacefulEnd.Parchment_CurrentBookState Covering, !PeacefulEnd.Parchment_CurrentBookState Sliding, !PeacefulEnd.Parchment_CurrentBookState Opening, !PeacefulEnd.Parchment_CurrentBookState Closing",
+				},
+				{
+					"Type": "Image",
+					"TexturePath": "Assets/Peacefulend.Parchment/bookmark1",
+					"TintColor": "DarkRed",
+					"TextureSourceRectangle": {
+						"X": 0,
+						"Y": 0,
+						"Width": 24,
+						"Height": 17
+					},
+					"HoverTextureSourceRectangle": {
+						"X": 0,
+						"Y": 17,
+						"Width": 24,
+						"Height": 17
+					},
+					//"SpriteEffects": "FlipHorizontally",
+					"Position": {
+						"X": 1064,
+						"Y": 164
+					},
+					"Scale": 4,
+					"Description": "Bookmarked spell: [Spiderbuttons.BETAS_PlayerModData {{ModId}}_SavedSpellName]",
+					"Condition": "!PeacefulEnd.Parchment_CurrentBookState Cover, !PeacefulEnd.Parchment_CurrentBookState Covering, !PeacefulEnd.Parchment_CurrentBookState Sliding, !PeacefulEnd.Parchment_CurrentBookState Opening, !PeacefulEnd.Parchment_CurrentBookState Closing, Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage",
+					"Actions": [
+						"PeacefulEnd.Parchment_JumpToPageId \"[Spiderbuttons.BETAS_PlayerModData {{ModId}}_SavedSpellPage]\"",
+					]
+				},
+				/* {
+					"Type": "Paragraph",
+					"Text": "*",
+					"Condition": "!PeacefulEnd.Parchment_CurrentBookState Cover, !PeacefulEnd.Parchment_CurrentBookState Covering, !PeacefulEnd.Parchment_CurrentBookState Sliding, !PeacefulEnd.Parchment_CurrentBookState Opening, Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage",
+					//"FontType": "Tiny",
+					"Position": {
+						"X": 1084,
+						"Y": 180
+					},
+					"TextColor": "Gold",
+					"ShadowColor": "Black"
+				}, */
 			],
 			"Pages": [  
 				{
@@ -153,184 +197,202 @@
 					"Id": "TableOfContents1",
 					"Elements": [
 						{ "Type": "Title", "Text": "List of Spells" },
-						{ "Type": "Divider", "Sizing": "Fill" },
+						//{ "Type": "Divider", "Sizing": "Fill" },
 						{ "Type": "Heading", "Text": "Novice" },
 						{ 
 							"Type": "Paragraph", 
 							"Description": "Jump to spell",
 							"Text": "Pyrales Invocare", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.FirefliesImage",
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Fireflies.Image",
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Medicandus Minimus", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.HealImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Heal.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Resurgere Minime", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.RegenImage"
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Regen.Image"
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Ignis Colorum", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.FireworksImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Fireworks.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Hortum Colere\n", 
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.TreesImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Novice.Trees.Image" 
 						},
-						{ "Type": "Divider", "Sizing": "Fill" },
+						{ 
+							"Type": "Divider", 
+							"Sizing": "ShrinkToFit", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/divider1", 
+							"Alignment": "Center",
+							"Scale": 2
+						},
 						{ "Type": "Heading", "Text": "Apprentice" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Dies Pluviae", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.RainImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Rain.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Festina Lente", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.SpeedImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Speed.Image" 
 						},
 					]
 				},
 				{
 					"Id": "TableOfContents2",
 					"Elements": [
-						{ "Type": "Title", "Text": "List of Spells" },
-						{ "Type": "Divider", "Sizing": "Fill" },
+						//{ "Type": "Title", "Text": "List of Spells" },
+						//{ "Type": "Divider", "Sizing": "Fill" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Medicandus Minor", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.HealImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Heal.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Resurgere Minus",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.RegenImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Regen.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Iter Ad Vicinitatem\n", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isApprentice received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.HopImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Apprentice.Hop.Image" 
 						},
-						{ "Type": "Divider", "Sizing": "Fill" },
+{ 
+							"Type": "Divider", 
+							"Sizing": "ShrinkToFit", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/divider1", 
+							"Alignment": "Center",
+							"Scale": 2
+						},
 						{ "Type": "Heading", "Text": "Amateur" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Dies Tempestatis",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.StormImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Storm.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Medicandus Medius", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.HealImage"
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Heal.Image"
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Resurgere Medio",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.RegenImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Regen.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Perfundere Viridibus",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.GreenRainImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.GreenRain.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Flammae Iacere",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.FireballImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.Fireball.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Litore Ponere\n",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAmateur received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.WarpBeachImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Amateur.WarpBeach.Image" 
 						},
 					]
 				},
 				{
 					"Id": "TableOfContents3",
 					"Elements": [
-						{ "Type": "Title", "Text": "List of Spells" },
-						{ "Type": "Divider", "Sizing": "Fill" },
+						//{ "Type": "Title", "Text": "List of Spells" },
+						//{ "Type": "Divider", "Sizing": "Fill" },
 						{ "Type": "Heading", "Text": "Adept" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Sacculus Continens",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.BagOfHoldingImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.BagOfHolding.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Medicandus Magnus", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.HealImage"
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.Heal.Image"
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Resurgere Magne",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.RegenImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.Regen.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Ad Urbem\n",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isAdept received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.WarpTownImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Adept.WarpTown.Image" 
 						},
-						{ "Type": "Divider", "Sizing": "Fill" },
+						{ 
+							"Type": "Divider", 
+							"Sizing": "ShrinkToFit", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/divider1", 
+							"Alignment": "Center",
+							"Scale": 2
+						},
 						{ "Type": "Heading", "Text": "Scholar" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Fulmina Iacere",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.LightningImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Lightning.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Medicandus Maior", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.HealImage"
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Heal.Image"
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Resurgere Maius",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.RegenImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Regen.Image" 
 						},
 						
 					]
@@ -338,64 +400,70 @@
 				{
 					"Id": "TableOfContents4",
 					"Elements": [
-						{ "Type": "Title", "Text": "List of Spells" },
-						{ "Type": "Divider", "Sizing": "Fill" },
+						//{ "Type": "Title", "Text": "List of Spells" },
+						//{ "Type": "Divider", "Sizing": "Fill" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Ad Cavernas",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.WarpMinesImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.WarpMines.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Agricola Festinus\n", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isScholar received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.SpeedImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Scholar.Speed.Image" 
 						},
-						{ "Type": "Divider", "Sizing": "Fill" },
+						{ 
+							"Type": "Divider", 
+							"Sizing": "ShrinkToFit", 
+							"TexturePath": "Assets/PeacefulEnd.Parchment/divider1", 
+							"Alignment": "Center",
+							"Scale": 2
+						},
 						{ "Type": "Heading", "Text": "Expert" },
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Domi Redire",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpHomeImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpHome.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Medicandus Maximus", 
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.HealImage"
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Heal.Image"
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Resurgere Maxime",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.RegenImage"
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Regen.Image"
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Ad Harenas",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpDesertImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.WarpDesert.Image" 
 						},
 						{ 
 							"Type": "Paragraph",
 							"Description": "Jump to spell",
 							"Text": "Amor Aetatum",
 							//"Condition": "PLAYER_HAS_MAIL Current {{ModId}}_isExpert received",
-							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.LoveImage" 
+							"Action": "PeacefulEnd.Parchment_JumpToPageId Expert.Love.Image" 
 						},
 					]
 				},
 				// NOVICE SPELLS
 				{
-					"Id": "Novice.FirefliesImage",
+					"Id": "Novice.Fireflies.Image",
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Pyrales Invocare", "Alignment": "Center" },
@@ -418,13 +486,13 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 5 stamina, 1 torch\n* Effect: Summon 1-5 fireflies", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
 				},
 				{
-					"Id": "Novice.FirefliesText",
+					"Id": "Novice.Fireflies.Text",
 					"ChapterId": "Novice",
 					"Background": [
 						{
@@ -443,7 +511,7 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "Cast Spell",
+									"Text": "{{i18n:UI.CastSpell}}",
 									"Alignment": "Center",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
@@ -461,7 +529,7 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "Cast",
+									"Text": "{{i18n:UI.CastSpell}}",
 									"Alignment": "Center",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
@@ -479,14 +547,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "Go Back",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Fireflies.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
-									//"VerticalAlignment": "Bottom",
 									"Scale": 2,
-									//"Padding": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Pyrales Invocare\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Novice.Fireflies.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Fireflies.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -500,7 +586,7 @@
 					]
 				},
 				{
-					"Id": "Novice.HealImage",
+					"Id": "Novice.Heal.Image",
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Minimus", "Alignment": "Center" },
@@ -520,7 +606,7 @@
 					]
 				},
 				{
-					"Id": "Novice.HealText",
+					"Id": "Novice.Heal.Text",
 					"ChapterId": "Novice",
 					"Background": [
 						{
@@ -558,12 +644,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Heal.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Medicandus Minimus\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Novice.Heal.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Heal.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -576,7 +682,7 @@
 					]
 				},
 				{
-					"Id": "Novice.RegenImage",
+					"Id": "Novice.Regen.Image",
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Resurgere Minime", "Alignment": "Center" },
@@ -596,7 +702,7 @@
 					]
 				},
 				{
-					"Id": "Novice.RegenText",
+					"Id": "Novice.Regen.Text",
 					"ChapterId": "Novice",
 					"Background": [
 						{
@@ -634,12 +740,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Regen.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Resurgere Minime\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Novice.Regen.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Regen.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -649,7 +775,7 @@
 					]
 				},
 				{
-					"Id": "Novice.FireworksImage",
+					"Id": "Novice.Fireworks.Image",
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Ignis Colorum", "Alignment": "Center" },
@@ -668,7 +794,7 @@
 					]
 				},
 				{
-					"Id": "Novice.FireworksText",
+					"Id": "Novice.Fireworks.Text",
 					"ChapterId": "Novice",
 					"Background": [
 						{
@@ -702,12 +828,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "Bookmark",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Fireworks.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Ignum Colorum\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Novice.Fireworks.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "Remove",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Fireworks.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -717,7 +863,7 @@
 					]
 				},
 				{
-					"Id": "Novice.TreesImage",
+					"Id": "Novice.Trees.Image",
 					"ChapterId": "Novice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Hortum Colere", "Alignment": "Center" },
@@ -747,7 +893,7 @@
 					]
 				},
 				{
-					"Id": "Novice.TreesText",
+					"Id": "Novice.Trees.Text",
 					"ChapterId": "Novice",
 					"Background": [
 						{
@@ -803,12 +949,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "Bookmark",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Trees.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Hortum Colere\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Novice.Trees.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "Remove",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Novice.Fireflies.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -820,7 +986,7 @@
 				
 				// APPRENTICE SPELLS
 				{
-					"Id": "Apprentice.RainImage",
+					"Id": "Apprentice.Rain.Image",
 					"ChapterId": "Apprentice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Dies Pluviae", "Alignment": "Center" },
@@ -840,7 +1006,7 @@
 					]
 				},
 				{
-					"Id": "Apprentice.RainText",
+					"Id": "Apprentice.Rain.Text",
 					"ChapterId": "Apprentice",
 					"Background": [
 						{
@@ -879,12 +1045,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Rain.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Dies Pluviae\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Apprentice.Rain.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Rain.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -896,7 +1082,7 @@
 					]
 				},
 				{
-					"Id": "Apprentice.HealImage",
+					"Id": "Apprentice.Heal.Image",
 					"ChapterId": "Apprentice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Minor", "Alignment": "Center" },
@@ -915,7 +1101,7 @@
 					]
 				},
 				{
-					"Id": "Apprentice.HealText",
+					"Id": "Apprentice.Heal.Text",
 					"ChapterId": "Apprentice",
 					"Background": [
 						{
@@ -953,23 +1139,43 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Heal.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Medicandus Minor\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Apprentice.Heal.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Heal.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Slightly more advanced than its predecessor, this healing spell is marginally more useful, though, in my opinion, only in dire situations. Trade energy for life." },
+						{ "Type": "Paragraph", "Text": "    Slightly more advanced than its predecessor, this healing spell is marginally more useful, though, in my opinion, only in truly perilous situations. Remember to ration your stamina wisely.\n    More advanced casters of this spell may be able to restore more life force using less energy." },
 						//"Scale": "{{TextScale}}",
 					]
 				},
 				{
-					"Id": "Apprentice.RegenImage",
+					"Id": "Apprentice.Regen.Image",
 					"ChapterId": "Apprentice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Resurgere Minus", "Alignment": "Center" },
@@ -989,7 +1195,7 @@
 					]
 				},
 				{
-					"Id": "Apprentice.RegenText",
+					"Id": "Apprentice.Regen.Text",
 					"ChapterId": "Apprentice",
 					"Background": [
 						{
@@ -1027,22 +1233,42 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Regen.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Resurgere Minus\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Apprentice.Regen.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Regen.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "Trade life for energy. More advanced versions of this spell have a much better exchange rate.\n\nCost: 30 HP\nEffect: +15 stamina" },
+						{ "Type": "Paragraph", "Text": "    Slightly more advanced than its predecessor, this vigor spell is marginally more useful, though, in my opinion, only in truly perilous situations. Remember to ration your resources wisely.\n    More advanced casters of this spell may be able to restore more energy using less life." },
 					]
 				},
 				{
-					"Id": "Apprentice.SpeedImage",
+					"Id": "Apprentice.Speed.Image",
 					"ChapterId": "Apprentice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Festina Lente", "Alignment": "Center" },
@@ -1058,13 +1284,13 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "	 Cost: 5 stamina, 1 torch\n	 Effect: Summon 1-5 fireflies", 
+							"Text": "* Cost: 5 stamina\n* Effect: Summon 1-5 fireflies", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
 				},
 				{
-					"Id": "Apprentice.SpeedText",
+					"Id": "Apprentice.Speed.Text",
 					"ChapterId": "Apprentice",
 					"Background": [
 						{
@@ -1102,12 +1328,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Speed.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Festina Lente\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Apprentice.Speed.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Speed.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1117,7 +1363,7 @@
 					]
 				},
 				{
-					"Id": "Apprentice.HopImage",
+					"Id": "Apprentice.Hop.Image",
 					"ChapterId": "Apprentice",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Iter Ad Vicinitatem", "Alignment": "Center" },
@@ -1137,7 +1383,7 @@
 					]
 				},
 				{
-					"Id": "Apprentice.HopText",
+					"Id": "Apprentice.Hop.Text",
 					"ChapterId": "Apprentice",
 					"Background": [
 						{
@@ -1171,12 +1417,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Hop.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Iter Ad Vicinitatem\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Apprentice.Hop.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Apprentice.Hop.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1188,7 +1454,7 @@
 				
 				// AMATEUR SPELLS
 				{
-					"Id": "Amateur.StormImage",
+					"Id": "Amateur.Storm.Image",
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Dies Tempestatis", "Alignment": "Center" },
@@ -1208,7 +1474,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.StormText",
+					"Id": "Amateur.Storm.Text",
 					"ChapterId": "Amateur",
 					"Background": [
 						{
@@ -1246,12 +1512,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Storm.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Dies Tempestatis\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Amateur.Storm.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Storm.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1261,7 +1547,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.HealImage",
+					"Id": "Amateur.Heal.Image",
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Medius", "Alignment": "Center" },
@@ -1280,7 +1566,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.HealText",
+					"Id": "Amateur.Heal.Text",
 					"ChapterId": "Amateur",
 					"Background": [
 						{
@@ -1318,12 +1604,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Heal.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Medicandus Medius\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Amateur.Heal.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Heal.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1333,7 +1639,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.RegenImage",
+					"Id": "Amateur.Regen.Image",
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Resurgere Medio", "Alignment": "Center" },
@@ -1353,7 +1659,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.RegenText",
+					"Id": "Amateur.Regen.Text",
 					"ChapterId": "Amateur",
 					"Background": [
 						{
@@ -1391,12 +1697,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Regen.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Resurgere Medio\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Amateur.Regen.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Regen.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1406,7 +1732,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.GreenRainImage",
+					"Id": "Amateur.GreenRain.Image",
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Perfundere Viridibus", "Alignment": "Center" },
@@ -1426,7 +1752,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.GreenRainText",
+					"Id": "Amateur.GreenRain.Text",
 					"ChapterId": "Amateur",
 					"Background": [
 						{
@@ -1465,12 +1791,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.GreenRain.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Perfundere Viridibus\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Amateur.GreenRain.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.GreenRain.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1480,7 +1826,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.FireballImage", // sound? fireball, flamespell
+					"Id": "Amateur.Fireball.Image", // sound? fireball, flamespell
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Flammae Iacere", "Alignment": "Center" },
@@ -1500,7 +1846,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.FireballText",
+					"Id": "Amateur.Fireball.Text",
 					"ChapterId": "Amateur",
 					"Background": [
 						{
@@ -1534,12 +1880,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Fireball.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Flammae Iacere\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Amateur.Fireball.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.Fireball.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1549,7 +1915,7 @@
 					]
 				},
 				{
-					"Id": "Amateur.WarpBeachImage",
+					"Id": "Amateur.WarpBeach.Image",
 					"ChapterId": "Amateur",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Litore Ponere", "Alignment": "Center" },
@@ -1563,13 +1929,13 @@
 						},
 						{ 
 							"Type": "Paragraph",
-							"Text": "* Cost: 15 stamina\n	 Effect: Warp to the beach", 
+							"Text": "* Cost: 15 stamina\n* Effect: Warp to the beach", 
 							//"Scale": "{{TextScale}}",
 						},
 					]
 				},
 				{
-					"Id": "Amateur.WarpBeachText",
+					"Id": "Amateur.WarpBeach.Text",
 					"ChapterId": "Amateur",
 					"Background": [
 						{
@@ -1607,23 +1973,43 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.WarpBeach.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Litore Ponere\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Amateur.WarpBeach.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Amateur.WarpBeach.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you on the sands of the beach, and be sure not to lose any loose pages in the process." },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you on the sands of the beach, and be sure not to drop any loose pages in the process." },
 					]
 				},
 				// ADEPT SPELLS 
 				{
-					"Id": "Adept.BagOfHoldingImage",
+					"Id": "Adept.BagOfHolding.Image",
 					"ChapterId": "Adept",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Sacculus Continens", "Alignment": "Center" },
@@ -1643,7 +2029,7 @@
 					]
 				},
 				{
-					"Id": "Adept.BagOfHoldingText",
+					"Id": "Adept.BagOfHolding.Text",
 					"ChapterId": "Adept",
 					"Background": [
 						{
@@ -1680,12 +2066,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.BagOfHolding.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Sacculus Continens\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Adept.BagOfHolding.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.BagOfHolding.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1695,7 +2101,7 @@
 					]
 				},
 				{
-					"Id": "Adept.HealImage",
+					"Id": "Adept.Heal.Image",
 					"ChapterId": "Adept",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Magnus", "Alignment": "Center" },
@@ -1714,7 +2120,7 @@
 					]
 				},
 				{
-					"Id": "Adept.HealText",
+					"Id": "Adept.Heal.Text",
 					"ChapterId": "Adept",
 					"Background": [
 						{
@@ -1752,12 +2158,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.Heal.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Medicandus Magnus\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Adept.Heal.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.Heal.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1767,7 +2193,7 @@
 					]
 				},
 				{
-					"Id": "Adept.RegenImage",
+					"Id": "Adept.Regen.Image",
 					"ChapterId": "Adept",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Resurgere Magne", "Alignment": "Center" },
@@ -1787,7 +2213,7 @@
 					]
 				},
 				{
-					"Id": "Adept.RegenText",
+					"Id": "Adept.Regen.Text",
 					"ChapterId": "Adept",
 					"Background": [
 						{
@@ -1825,12 +2251,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.Regen.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Resurgere Magne\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Adept.Regen.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.Regen.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1840,7 +2286,7 @@
 					]
 				},
 				{
-					"Id": "Adept.WarpTownImage",
+					"Id": "Adept.WarpTown.Image",
 					"ChapterId": "Adept",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Ad Urbem", "Alignment": "Center" },
@@ -1860,7 +2306,7 @@
 					]
 				},
 				{
-					"Id": "Adept.WarpTownText",
+					"Id": "Adept.WarpTown.Text",
 					"ChapterId": "Adept",
 					"Background": [
 						{
@@ -1898,24 +2344,44 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.WarpTown.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Ad Urbem\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Adept.WarpTown.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Adept.WarpTown.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you in the town square, and be sure not to lose any loose pages in the process." },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you in the town square, and be sure not to drop any loose pages in the process." },
 					]
 				},
 				
 				// SCHOLAR SPELLS 
 				{
-					"Id": "Scholar.LightningImage", // sound
+					"Id": "Scholar.Lightning.Image", // sound
 					"ChapterId": "Scholar",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Fulmina Iacere", "Alignment": "Center" },
@@ -1935,7 +2401,7 @@
 					]
 				},
 				{
-					"Id": "Scholar.LightningText", // sound
+					"Id": "Scholar.Lightning.Text", // sound
 					"ChapterId": "Scholar",
 					"Background": [
 						{
@@ -1969,12 +2435,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Lightning.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Fulmina Iacere\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Scholar.Lightning.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Lightning.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -1984,7 +2470,7 @@
 					]
 				},
 				{
-					"Id": "Scholar.HealImage",
+					"Id": "Scholar.Heal.Image",
 					"ChapterId": "Scholar",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Maior", "Alignment": "Center" },
@@ -2003,7 +2489,7 @@
 					]
 				},
 				{
-					"Id": "Scholar.HealText",
+					"Id": "Scholar.Heal.Text",
 					"ChapterId": "Scholar",
 					"Background": [
 						{
@@ -2041,12 +2527,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Heal.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Medicandus Maior\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Scholar.Heal.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Heal.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -2056,10 +2562,10 @@
 					]
 				},
 				{
-					"Id": "Scholar.RegenImage",
+					"Id": "Scholar.Regen.Image",
 					"ChapterId": "Scholar",
 					"Elements": [
-						{ "Type": "Heading", "Text": "Resurgere Magne", "Alignment": "Center" },
+						{ "Type": "Heading", "Text": "Resurgere Maius", "Alignment": "Center" },
 						{ "Type": "Paragraph", "Text": "Vigor - Scholar", "Alignment": "Center" },
 						{ 
 							"Type": "Image", 
@@ -2076,7 +2582,7 @@
 					]
 				},
 				{
-					"Id": "Scholar.RegenText",
+					"Id": "Scholar.Regen.Text",
 					"ChapterId": "Scholar",
 					"Background": [
 						{
@@ -2114,12 +2620,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Regen.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Resurgere Maius\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Scholar.Regen.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Regen.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -2129,11 +2655,11 @@
 					]
 				},
 				{
-					"Id": "Scholar.WarpMinesImage",
+					"Id": "Scholar.WarpMines.Image",
 					"ChapterId": "Scholar",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Ad Cavernas", "Alignment": "Center" },
-						{ "Type": "Paragraph", "Text": "Town Teleport", "Alignment": "Center" },
+						{ "Type": "Paragraph", "Text": "M Teleport", "Alignment": "Center" },
 						{ 
 							"Type": "Image", 
 							"TexturePath": "{{ModId}}/Illustrations" ,
@@ -2149,7 +2675,7 @@
 					]
 				},
 				{
-					"Id": "Scholar.WarpMinesText",
+					"Id": "Scholar.WarpMines.Text",
 					"ChapterId": "Scholar",
 					"Background": [
 						{
@@ -2187,22 +2713,42 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.WarpMines.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Ad Cavernas\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Scholar.WarpMines.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.WarpMines.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you in the mines, and be sure not to lose any loose pages in the process." },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you in the mines, and be sure not to drop any loose pages in the process." },
 					]
 				},
 				{
-					"Id": "Scholar.SpeedImage",
+					"Id": "Scholar.Speed.Image",
 					"ChapterId": "Scholar",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Agricola Festinus", "Alignment": "Center" },
@@ -2222,7 +2768,7 @@
 					]
 				},
 				{
-					"Id": "Scholar.SpeedText",
+					"Id": "Scholar.Speed.Text",
 					"ChapterId": "Scholar",
 					"Background": [
 						{
@@ -2260,12 +2806,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Speed.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Agricola Festinus\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Scholar.Speed.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Scholar.Speed.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -2277,7 +2843,7 @@
 				
 				// EXPERT SPELLS 
 				{
-					"Id": "Expert.WarpHomeImage",
+					"Id": "Expert.WarpHome.Image",
 					"ChapterId": "Expert",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Domi Redire", "Alignment": "Center" },
@@ -2297,7 +2863,7 @@
 					]
 				},
 				{
-					"Id": "Expert.WarpHomeText",
+					"Id": "Expert.WarpHome.Text",
 					"ChapterId": "Expert",
 					"Background": [
 						{
@@ -2335,22 +2901,42 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.WarpHome.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Domi Redire\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Expert.WarpHome.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.WarpHome.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you at home, and be sure not to lose any loose pages in the process." },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you at home, and be sure not to drop any loose pages in the process." },
 					]
 				},
 				{
-					"Id": "Expert.HealImage",
+					"Id": "Expert.Heal.Image",
 					"ChapterId": "Expert",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Medicandus Maximus", "Alignment": "Center" },
@@ -2369,7 +2955,7 @@
 					]
 				},
 				{
-					"Id": "Expert.HealText",
+					"Id": "Expert.Heal.Text",
 					"ChapterId": "Expert",
 					"Background": [
 						{
@@ -2407,12 +2993,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.Heal.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Medicandus Maximus\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Expert.Heal.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.Heal.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -2422,7 +3028,7 @@
 					]
 				},
 				{
-					"Id": "Expert.RegenImage",
+					"Id": "Expert.Regen.Image",
 					"ChapterId": "Expert",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Resurgere Maxime", "Alignment": "Center" },
@@ -2442,7 +3048,7 @@
 					]
 				},
 				{
-					"Id": "Expert.RegenText",
+					"Id": "Expert.Regen.Text",
 					"ChapterId": "Expert",
 					"Background": [
 						{
@@ -2480,12 +3086,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.Regen.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Resurgere Maxime\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Expert.Regen.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.Regen.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
@@ -2495,7 +3121,7 @@
 					]
 				},
 				{
-					"Id": "Expert.WarpDesertImage",
+					"Id": "Expert.WarpDesert.Image",
 					"ChapterId": "Expert",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Ad Harenas", "Alignment": "Center" },
@@ -2515,7 +3141,7 @@
 					]
 				},
 				{
-					"Id": "Expert.WarpDesertText",
+					"Id": "Expert.WarpDesert.Text",
 					"ChapterId": "Expert",
 					"Background": [
 						{
@@ -2553,22 +3179,42 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.WarpDesert.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Ad Harenas\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Expert.WarpDesert.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.WarpDesert.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
 					],
 					"Elements": [
-						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you on the sands of the desert, and be sure not to lose any loose pages in the process." },
+						{ "Type": "Paragraph", "Text": "    Near-instantaneous travel via spell is an acceptable alternative for those who haven't the ability to travel through any mirror, though of course it comes at the cost of your own energy reserves.\n    Coax the winds into instantly depositing you on the sands of the desert, and be sure not to drop any loose pages in the process." },
 					]
 				},
 				{
-					"Id": "Expert.LoveImage",
+					"Id": "Expert.Love.Image",
 					"ChapterId": "Expert",
 					"Elements": [
 						{ "Type": "Heading", "Text": "Amor Aetatum", "Alignment": "Center" },
@@ -2596,7 +3242,7 @@
 					]
 				},
 				{
-					"Id": "Expert.LoveText",
+					"Id": "Expert.Love.Text",
 					"ChapterId": "Expert",
 					"Background": [
 						{
@@ -2638,12 +3284,32 @@
 									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
 									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
 									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
-									"Text": "{{i18n:UI.GoBack}}",
+									"Text": "{{i18n: UI.AddBookmark}}",
+									"Condition": "!Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.Love.Text",
 									"FontType": "Small",
 									"Sizing": "ShrinkToFit",
 									"Alignment": "Center",
 									"Scale": 2,
-									"Action": "PeacefulEnd.Parchment_JumpToPageId TableOfContents1", 
+									"Actions": [
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellName \"Amor Aetatum\"", 
+										"Spiderbuttons.BETAS_WritePlayerModData {{ModId}}_SavedSpellPage Expert.Love.Text", 
+									]
+								},
+								{ 
+									"Type": "Button", 
+									"TexturePath": "Assets/PeacefulEnd.Parchment/button1",
+									"TextureSourceRectangle": { "X": 0, "Y": 0, "Width": 18, "Height": 18 },
+									"HoverTextureSourceRectangle": { "X": 0, "Y": 18, "Width": 18, "Height": 18 },
+									"Text": "{{i18n: UI.RemoveBookmark}}",
+									"Condition": "Spiderbuttons.BETAS_PLAYER_MOD_DATA Current {{ModId}}_SavedSpellPage Expert.Love.Text",
+									"FontType": "Small",
+									"Sizing": "ShrinkToFit",
+									"Alignment": "Center",
+									"Scale": 2,
+									"Actions": [
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellName", 
+										"Spiderbuttons.BETAS_RemovePlayerModData {{ModId}}_SavedSpellPage", 
+									]
 								}
 							]
 						},
